@@ -20,14 +20,9 @@
         <td><%= disc_assessment.influencer_score %></td>
         <td><%= disc_assessment.sociable_score %></td>
         <td><%= disc_assessment.conscientious_score %></td>
-        <td><%= link_to 'Show', disc_assessment %></td>
-        <td><%= link_to 'Edit', edit_disc_assessment_path(disc_assessment) %></td>
-        <td><%= link_to 'Destroy', disc_assessment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Disc assessment', new_disc_assessment_path %>
