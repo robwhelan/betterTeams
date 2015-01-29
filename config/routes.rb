@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
    
   resources :pages
-  root to: "pages#home"
+  root to: "disc_assessments#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
