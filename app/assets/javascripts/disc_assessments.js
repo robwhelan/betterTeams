@@ -11,6 +11,9 @@
 			  return array;
 			}	
 
+			//track time for the app
+			//var startTime = Date.now();
+			
 			$( "#sortable_2" ).sortable({
 				connectWith: ".connectedSortable",
 				receive: function( event, ui ) {
@@ -50,15 +53,19 @@
 				"width:77%;",
 				"width:85%;",
 				"width:92%;",
-				"width:100%;"]
+			"width:100%;"];
 			
 			$('#nextButton').click(function(){
+				$('#directions').fadeOut();
 				var questionNumber = $('#questionNumber').html();
 				questionNumber++;
 				$('#questionNumber').html(questionNumber);
 				
 				if(questionNumber == 14) {
 					//manually click the submit button
+					//var endTime = Date.now();
+					//var totalTime = endTime - startTime;
+					//$('#disc_assessment_survey_time').val(totalTime);
 					$('#submitButton').click();
 				}
 
@@ -141,3 +148,12 @@
 
 			})
 		});
+
+		var start = null;
+        $(window).load(function(event) {
+            start = event.timeStamp;
+        });
+        $(window).unload(function(event) {
+            var time = event.timeStamp - start;
+            $.post('/collect-user-time/ajax-backend.php', {time: time});
+        })

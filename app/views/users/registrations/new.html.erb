@@ -22,9 +22,9 @@
 				<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 			</div>
 
-			<%= f.submit "Sign up", class: "btn btn-default" %>	<div class="pull-right"><%= render "devise/shared/links" %></div>
-
+			<%= f.submit "Sign up", class: "btn btn-default pull-right" %>
 			<% end %>
 		</div>
 		<div class="col-md-3"></div>
+		<div class="hidden"><%= render "devise/shared/links" %></div>
 

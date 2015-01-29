@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129154451) do
+ActiveRecord::Schema.define(version: 20150129210251) do
 
   create_table "disc_assessments", force: true do |t|
     t.integer  "user_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150129154451) do
     t.integer  "conscientious_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "survey_time"
   end
 
   add_index "disc_assessments", ["user_id"], name: "index_disc_assessments_on_user_id"
