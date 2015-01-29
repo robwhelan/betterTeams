@@ -1,0 +1,60 @@
+<div class="container">
+	<h1>What am I like?</h1>
+	<div class="row">
+		<div class="col-md-6"></div>
+		<div class="col-md-6">
+			<p>Most like me</p>
+		</div>
+	</div>
+		
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<ul id="sortable_1" class="list-unstyled connectedSortable">
+				<li id="starting_1" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+				<li id="starting_2" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+				<li id="starting_3" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+				<li id="starting_4" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+			</ul>
+		</div>
+		<div class="col-md-3">
+			<ul id="sortable_2" class="list-unstyled connectedSortable" style="height:200px;">
+			</ul>
+			<p>Least like me</p>
+			<button class="btn btn-primary btn-lg btn-block" disabled="disabled" id="nextButton">Next</button>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="height:25px;">
+	</div>
+	<div class="row">
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" id="progressBar" role="progressbar" aria-valuenow="6.66" aria-valuemin="0" aria-valuemax="100" style="width: 6.66%;">
+			</div>
+		</div>
+	</div>
+</div>
+
+<p class="hidden" id="questionNumber">1</p>		
+<div class="">
+	<%= form_for(@disc_assessment) do |f| %>
+	  <% if @disc_assessment.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@disc_assessment.errors.count, "error") %> prohibited this disc_assessment from being saved:</h2>
+
+	      <ul>
+	      <% @disc_assessment.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	    <%= f.text_field :user_id %>
+	    <%= f.number_field :driver_score, value: 0 %>
+	    <%= f.number_field :influencer_score, value: 0 %>
+	    <%= f.number_field :sociable_score, value: 0 %>
+	    <%= f.number_field :conscientious_score, value: 0 %>
+	    <%= f.submit id: "submitButton" %>
+	<% end %>
+</div>

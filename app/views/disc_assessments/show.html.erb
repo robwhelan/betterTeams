@@ -1,0 +1,39 @@
+<canvas id="discChart" width="400" height="400"></canvas>
+<script type="text/javascript">
+	var ctx = document.getElementById("discChart").getContext("2d");
+
+	var data = [
+	    {
+	        value: <%= @disc_assessment.driver_score %>,
+	        color:"#F7464A",
+	        highlight: "#FF5A5E",
+	        label: "Driver"
+	    },
+	    {
+	        value: <%= @disc_assessment.sociable_score %>,
+	        color: "#46BFBD",
+	        highlight: "#5AD3D1",
+	        label: "Sociable"
+	    },
+	    {
+	        value: <%= @disc_assessment.influencer_score%>,
+	        color: "#FDB45C",
+	        highlight: "#FFC870",
+	        label: "Influencer"
+	    },
+	    {
+	        value: <%= @disc_assessment.conscientious_score %>,
+	        color: "#949FB1",
+	        highlight: "#A8B3C5",
+	        label: "Conscientious"
+	    }
+	];
+	
+	var myNewChart = new Chart(ctx).PolarArea(data);
+	//new Chart(ctx).PolarArea(data, options);
+</script>
+
+<div class="hidden">
+<%= link_to 'Edit', edit_disc_assessment_path(@disc_assessment) %> |
+<%= link_to 'Back', disc_assessments_path %>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  driver_score: 1
+  influencer_score: 1
+  sociable_score: 1
+  conscientious_score: 1
+
+two:
+  user_id: 
+  driver_score: 1
+  influencer_score: 1
+  sociable_score: 1
+  conscientious_score: 1

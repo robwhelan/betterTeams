@@ -1,0 +1,2 @@
+module DiscAssessmentsHelper
+end
