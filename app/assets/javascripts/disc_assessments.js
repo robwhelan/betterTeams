@@ -148,12 +148,3 @@
 
 			})
 		});
-
-		var start = null;
-        $(window).load(function(event) {
-            start = event.timeStamp;
-        });
-        $(window).unload(function(event) {
-            var time = event.timeStamp - start;
-            $.post('/collect-user-time/ajax-backend.php', {time: time});
-        })
