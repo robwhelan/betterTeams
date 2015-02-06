@@ -1,5 +1,13 @@
 Rails.application.routes.draw do  
   
+  get 'pages/return_benchmark_data'
+
+  resources :messages
+
+  resources :job_postings
+
+  resources :job_benchmarks
+
   resources :disc_assessments
 
   devise_for :users, controllers: { registrations: "users/registrations" } do

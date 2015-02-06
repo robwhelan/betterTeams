@@ -1,0 +1,37 @@
+$('#controlDiv').removeClass('hidden');
+
+var i=0;
+<% @discs.each do |d| %>
+	$('#disc_' + i).html('<%= d.name %>');
+	i++;
+<% end %>
+		
+var i=2;
+<% @non_discs.each do |d| %>
+	$('#disc_' + i).html('<%= d.name %>');
+	i++;
+<% end %>
+
+var i=0;
+<% @values.each do |v| %>
+	$('#value_' + i).html('<%= v.name %>');
+	i++;
+<% end %>
+		
+var i=3;
+<% @non_values.each do |v| %>
+	$('#value_' + i).html('<%= v.name %>');
+	i++;
+<% end %>
+
+var i=0;
+<% @skills.each do |s| %>
+	$('#skill_' + i).html('<%= s.name %>');
+	i++;
+<% end %>
+		
+var i=5;
+<% @non_skills.each do |s| %>
+	$('#skill_' + i).html('<%= s.name %>');
+	i++;
+<% end %>

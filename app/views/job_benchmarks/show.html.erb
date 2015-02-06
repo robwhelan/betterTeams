@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @job_benchmark.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job_benchmark.description %>
+</p>
+
+<p>
+  <strong>Communication Styles:</strong>
+	<% @job_benchmark.assessment_discs.each do |d| %>
+  	<p><%= d.name %></p>
+	<% end %>
+</p>
+
+<p>
+  <strong>Values:</strong>
+	<% @job_benchmark.assessment_values.each do |d| %>
+  	<p><%= d.name %></p>
+	<% end %>
+</p>
+
+<p>
+  <strong>Soft Skills:</strong>
+	<% @job_benchmark.assessment_skills.each do |d| %>
+  	<p><%= d.name %></p>
+	<% end %>
+</p>
+
+<%= link_to 'Edit', edit_job_benchmark_path(@job_benchmark) %> |
+<%= link_to 'Back', job_benchmarks_path %>

@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129210251) do
+ActiveRecord::Schema.define(version: 20150206185706) do
+
+  create_table "assessment_discs", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "assessment_skills", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "assessment_values", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "disc_assessments", force: true do |t|
     t.integer  "user_id"
@@ -25,6 +43,83 @@ ActiveRecord::Schema.define(version: 20150129210251) do
   end
 
   add_index "disc_assessments", ["user_id"], name: "index_disc_assessments_on_user_id"
+
+  create_table "job_benchmarks", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "job_discs", force: true do |t|
+    t.integer  "assessment_disc_id"
+    t.integer  "job_posting_id"
+    t.integer  "job_benchmark_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_discs", ["assessment_disc_id"], name: "index_job_discs_on_assessment_disc_id"
+  add_index "job_discs", ["job_benchmark_id"], name: "index_job_discs_on_job_benchmark_id"
+  add_index "job_discs", ["job_posting_id"], name: "index_job_discs_on_job_posting_id"
+
+  create_table "job_postings", force: true do |t|
+    t.integer  "job_benchmark_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_postings", ["job_benchmark_id"], name: "index_job_postings_on_job_benchmark_id"
+  add_index "job_postings", ["user_id"], name: "index_job_postings_on_user_id"
+
+  create_table "job_skills", force: true do |t|
+    t.integer  "assessment_skill_id"
+    t.integer  "job_posting_id"
+    t.integer  "job_benchmark_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_skills", ["assessment_skill_id"], name: "index_job_skills_on_assessment_skill_id"
+  add_index "job_skills", ["job_benchmark_id"], name: "index_job_skills_on_job_benchmark_id"
+  add_index "job_skills", ["job_posting_id"], name: "index_job_skills_on_job_posting_id"
+
+  create_table "job_tasks", force: true do |t|
+    t.string   "name"
+    t.integer  "job_benchmark_id"
+    t.integer  "job_posting_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_tasks", ["job_benchmark_id"], name: "index_job_tasks_on_job_benchmark_id"
+  add_index "job_tasks", ["job_posting_id"], name: "index_job_tasks_on_job_posting_id"
+
+  create_table "job_values", force: true do |t|
+    t.integer  "assessment_value_id"
+    t.integer  "job_posting_id"
+    t.integer  "job_benchmark_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_values", ["assessment_value_id"], name: "index_job_values_on_assessment_value_id"
+  add_index "job_values", ["job_benchmark_id"], name: "index_job_values_on_job_benchmark_id"
+  add_index "job_values", ["job_posting_id"], name: "index_job_values_on_job_posting_id"
+
+  create_table "messages", force: true do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.integer  "job_posting_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["job_posting_id"], name: "index_messages_on_job_posting_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,153 @@
+<div class="container">
+	<%= form_for(@job_posting) do |f| %>
+	  <% if @job_posting.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@job_posting.errors.count, "error") %> prohibited this job_posting from being saved:</h2>
+
+	      <ul>
+	      <% @job_posting.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <div class="row">
+		  <div class="col-md-3"></div>
+		  <div class="col-md-6">
+			<div class="form-group" id="jobTitle">
+				<input class="form-control typeahead" id="job-title-input" type="text" placeholder="Job Title">
+			</div>		  	
+		  </div>
+		  <div class="col-md-3"></div>
+	  </div>
+	  <div id="controlDiv" class="hidden">
+		<div class="row">
+			<div class="col-md-3">
+				<ul id="sortableDisc" class="list-unstyled">
+					<li id="disc_0" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="disc_1" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="disc_2" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="disc_3" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<ul id="sortableValue" class="list-unstyled">
+					<li id="value_0" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="value_1" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="value_2" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="value_3" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="value_4" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="value_5" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<ul id="sortableSkill" class="list-unstyled">
+					<li id="skill_0" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="skill_1" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="skill_2" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="skill_3" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="skill_4" class="ui-state-default btn btn-success btn-lg btn-block"></li>
+					<li id="skill_5" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_6" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_7" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_8" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_9" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_10" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_11" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_12" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_13" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_14" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_15" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_16" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_17" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_18" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_19" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_20" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_21" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+					<li id="skill_22" class="ui-state-default btn btn-default btn-lg btn-block"></li>
+				</ul>
+			</div>
+		</div>
+	  </div>
+	  <div id="values"></div>
+	  <div id="skills"></div>
+	  <div class="field">
+	    <%= f.label :job_benchmark_id %><br>
+	    <%= f.text_field :job_benchmark_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :user_id %><br>
+	    <%= f.text_field :user_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :title %><br>
+	    <%= f.text_field :title %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :description %><br>
+	    <%= f.text_area :description %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+</div>
+
+<script>
+$( document ).ready(function() {
+	
+	function updateFormWithBenchmarkData(){
+		var _jobTitle = $('#job-title-input').val();
+		$.get("/pages/return_benchmark_data?jobTitle=" + _jobTitle);
+	}
+	
+	var substringMatcher = function(strs) {
+	  return function findMatches(q, cb) {
+	    var matches, substrRegex;
+ 
+	    // an array that will be populated with substring matches
+	    matches = [];
+ 
+	    // regex used to determine if a string contains the substring `q`
+	    substrRegex = new RegExp(q, 'i');
+ 
+	    // iterate through the pool of strings and for any string that
+	    // contains the substring `q`, add it to the `matches` array
+	    $.each(strs, function(i, str) {
+	      if (substrRegex.test(str)) {
+	        // the typeahead jQuery plugin expects suggestions to a
+	        // JavaScript object, refer to typeahead docs for more info
+	        matches.push({ value: str });
+	      }
+	    });
+ 
+	    cb(matches);
+	  };
+	};
+ 
+	var jobTitles = ['Receptionist', 'Programmer', 'Barista', 'Construction', 'Woodworker', 'Quickbooks Person', 'Recreation Supervisor'];
+ 
+	$('#jobTitle .typeahead').typeahead({
+	  hint: true,
+	  highlight: true,
+	  minLength: 1,
+	},
+	{
+	  name: 'jobTitles',
+	  displayKey: 'value',
+	  source: substringMatcher(jobTitles)
+	}).on('typeahead:selected', function () {
+		updateFormWithBenchmarkData();
+	});
+	
+    $(function() {
+      $( "#sortableDisc" ).sortable();
+      $( "#sortableDisc" ).disableSelection();
+      $( "#sortableValue" ).sortable();
+      $( "#sortableValue" ).disableSelection();
+      $( "#sortableSkill" ).sortable();
+      $( "#sortableSkill" ).disableSelection();
+    });
+});
+</script>

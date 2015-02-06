@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assessment_value_id: 
+  job_posting_id: 
+  job_benchmark_id: 
+
+two:
+  assessment_value_id: 
+  job_posting_id: 
+  job_benchmark_id: 
