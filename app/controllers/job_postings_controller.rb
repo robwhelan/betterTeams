@@ -26,6 +26,17 @@ class JobPostingsController < ApplicationController
   # POST /job_postings.json
   def create
     @job_posting = JobPosting.new(job_posting_params)
+    @job_posting.save
+    @job_posting.assessment_discs<<AssessmentDisc.find(params[:disc_0])
+    @job_posting.assessment_discs<<AssessmentDisc.find(params[:disc_1])
+    @job_posting.assessment_values<<AssessmentValue.find(params[:values_0])
+    @job_posting.assessment_values<<AssessmentValue.find(params[:values_1])
+    @job_posting.assessment_values<<AssessmentValue.find(params[:values_2])
+    @job_posting.assessment_skills<<AssessmentSkill.find(params[:skills_0])
+    @job_posting.assessment_skills<<AssessmentSkill.find(params[:skills_1])
+    @job_posting.assessment_skills<<AssessmentSkill.find(params[:skills_2])
+    @job_posting.assessment_skills<<AssessmentSkill.find(params[:skills_3])
+    @job_posting.assessment_skills<<AssessmentSkill.find(params[:skills_4])
 
     respond_to do |format|
       if @job_posting.save

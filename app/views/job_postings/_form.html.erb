@@ -19,7 +19,20 @@
 				<input class="form-control typeahead" id="job-title-input" type="text" placeholder="Job Title">
 			</div>		  	
 		  </div>
-		  <div class="col-md-3"></div>
+		  <div class="col-md-3">
+			  <h1 id="thisButton">This</h1>
+		  	<p id="disc_score_1"></p>
+		  	<p id="disc_score_2"></p>
+		  	<p id="disc_score_3"></p>
+		  	<p id="disc_score_4"></p>
+			<hr/>
+		  	<p id="value_score_1"></p>
+		  	<p id="value_score_2"></p>
+		  	<p id="value_score_3"></p>
+		  	<p id="value_score_4"></p>
+		  	<p id="value_score_5"></p>
+		  	<p id="value_score_6"></p>
+		  </div>
 	  </div>
 	  <div id="controlDiv" class="hidden">
 		<div class="row">
@@ -88,6 +101,23 @@
 	    <%= f.label :description %><br>
 	    <%= f.text_area :description %>
 	  </div>
+	  <div>
+	  	<input id="d0" name="disc_0">
+	  	<input id="d1" name="disc_1">
+	</div>
+	<div>
+	  	<input id="v0" name="values_0">
+	  	<input id="v1" name="values_1">
+	  	<input id="v2" name="values_2">
+	</div>
+	<div>
+	  	<input id="s0" name="skills_0">
+	  	<input id="s1" name="skills_1">
+	  	<input id="s2" name="skills_2">
+	  	<input id="s3" name="skills_3">
+	  	<input id="s4" name="skills_4">
+	</div>
+		
 	  <div class="actions">
 	    <%= f.submit %>
 	  </div>
@@ -95,59 +125,5 @@
 </div>
 
 <script>
-$( document ).ready(function() {
-	
-	function updateFormWithBenchmarkData(){
-		var _jobTitle = $('#job-title-input').val();
-		$.get("/pages/return_benchmark_data?jobTitle=" + _jobTitle);
-	}
-	
-	var substringMatcher = function(strs) {
-	  return function findMatches(q, cb) {
-	    var matches, substrRegex;
- 
-	    // an array that will be populated with substring matches
-	    matches = [];
- 
-	    // regex used to determine if a string contains the substring `q`
-	    substrRegex = new RegExp(q, 'i');
- 
-	    // iterate through the pool of strings and for any string that
-	    // contains the substring `q`, add it to the `matches` array
-	    $.each(strs, function(i, str) {
-	      if (substrRegex.test(str)) {
-	        // the typeahead jQuery plugin expects suggestions to a
-	        // JavaScript object, refer to typeahead docs for more info
-	        matches.push({ value: str });
-	      }
-	    });
- 
-	    cb(matches);
-	  };
-	};
- 
-	var jobTitles = ['Receptionist', 'Programmer', 'Barista', 'Construction', 'Woodworker', 'Quickbooks Person', 'Recreation Supervisor'];
- 
-	$('#jobTitle .typeahead').typeahead({
-	  hint: true,
-	  highlight: true,
-	  minLength: 1,
-	},
-	{
-	  name: 'jobTitles',
-	  displayKey: 'value',
-	  source: substringMatcher(jobTitles)
-	}).on('typeahead:selected', function () {
-		updateFormWithBenchmarkData();
-	});
-	
-    $(function() {
-      $( "#sortableDisc" ).sortable();
-      $( "#sortableDisc" ).disableSelection();
-      $( "#sortableValue" ).sortable();
-      $( "#sortableValue" ).disableSelection();
-      $( "#sortableSkill" ).sortable();
-      $( "#sortableSkill" ).disableSelection();
-    });
-});
+
 </script>

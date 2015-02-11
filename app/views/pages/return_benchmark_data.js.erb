@@ -2,36 +2,39 @@ $('#controlDiv').removeClass('hidden');
 
 var i=0;
 <% @discs.each do |d| %>
-	$('#disc_' + i).html('<%= d.name %>');
+	$('#disc_' + i).html('<%= d.name %>').attr('id', '#disc_' + '<%= d.id %>');
+	$('#d' + i).val('<%= d.id %>');
 	i++;
 <% end %>
 		
 var i=2;
 <% @non_discs.each do |d| %>
-	$('#disc_' + i).html('<%= d.name %>');
+	$('#disc_' + i).html('<%= d.name %>').attr('id', '#disc_' + '<%= d.id %>');
 	i++;
 <% end %>
 
 var i=0;
 <% @values.each do |v| %>
-	$('#value_' + i).html('<%= v.name %>');
+	$('#value_' + i).html('<%= v.name %>').attr('id', '#value_' + '<%= v.id %>');
+	$('#v' + i).val('<%= v.id %>');
 	i++;
 <% end %>
 		
 var i=3;
 <% @non_values.each do |v| %>
-	$('#value_' + i).html('<%= v.name %>');
+	$('#value_' + i).html('<%= v.name %>').attr('id', '#value_' + '<%= v.id %>');
 	i++;
 <% end %>
 
 var i=0;
 <% @skills.each do |s| %>
-	$('#skill_' + i).html('<%= s.name %>');
+	$('#skill_' + i).html('<%= s.name %>').attr('id', '#skill_' + '<%= s.id %>');
+	$('#s' + i).val('<%= s.id %>');
 	i++;
 <% end %>
 		
 var i=5;
 <% @non_skills.each do |s| %>
-	$('#skill_' + i).html('<%= s.name %>');
+	$('#skill_' + i).html('<%= s.name %>').attr('id', '#skill_' + '<%= s.id %>');
 	i++;
 <% end %>
