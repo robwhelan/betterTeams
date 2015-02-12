@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  task_statement_id: 
-  job_benchmark_id: 
+  onet_id: MyString
+  body: MyString
 
 two:
-  task_statement_id: 
-  job_benchmark_id: 
+  onet_id: MyString
+  body: MyString

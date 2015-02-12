@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 	
 	function updateFormWithBenchmarkData(){
-		var _jobTitle = $('#job-title-input').val();
+		var _jobTitle = $('#job_posting_title').val();
 		$.get("/pages/return_benchmark_data?jobTitle=" + _jobTitle);
 	}
 	
@@ -31,7 +31,7 @@ $( document ).ready(function() {
  
 	var jobTitles = ['Receptionist', 'Programmer', 'Barista', 'Construction', 'Woodworker', 'Quickbooks Person', 'Recreation Supervisor'];
 	function scoreDisc(){
-		var discList = $('#sortableDisc')
+		var discList = $('#sortableDisc');
 		$($(discList).children()[0]).addClass("btn-success").removeClass("btn-default");
 		$($(discList).children()[1]).addClass("btn-success").removeClass("btn-default");
 		$($(discList).children()[2]).addClass("btn-default").removeClass("btn-success");
@@ -56,7 +56,7 @@ $( document ).ready(function() {
 	}
 	
 	function scoreValue(){
-		var valueList = $('#sortableValue')
+		var valueList = $('#sortableValue');
 		for ( i = 0; i < 3; i++ ){
 			$($(valueList).children()[i]).addClass("btn-success").removeClass("btn-default");			
 		}
@@ -87,7 +87,7 @@ $( document ).ready(function() {
 	}
 
 	function scoreSkill(){
-		var skillList = $('#sortableSkill')
+		var skillList = $('#sortableSkill');
 		for ( i = 0; i < 5; i++ ){
 			$($(skillList).children()[i]).addClass("btn-success").removeClass("btn-default");			
 		}
@@ -96,7 +96,7 @@ $( document ).ready(function() {
 		}
 		var serializedOrder = skillList.sortable('toArray');
 		for( i = 0; i < serializedOrder.length; i++ ){
-			var rank = serializedOrder[i].slice(-1);
+			var rank = serializedOrder[i].slice(-2);
 			rank = parseInt(rank);
 
 			switch(i) {
@@ -133,6 +133,7 @@ $( document ).ready(function() {
 			case 20:
 			case 21:
 			case 22:
+			case 23:
 				break;
 			}		
 		};

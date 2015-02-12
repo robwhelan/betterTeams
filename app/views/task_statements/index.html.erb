@@ -1,0 +1,27 @@
+<h1>Listing task_statements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Onet</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_statements.each do |task_statement| %>
+      <tr>
+        <td><%= task_statement.onet_id %></td>
+        <td><%= task_statement.body %></td>
+        <td><%= link_to 'Show', task_statement %></td>
+        <td><%= link_to 'Edit', edit_task_statement_path(task_statement) %></td>
+        <td><%= link_to 'Destroy', task_statement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task statement', new_task_statement_path %>

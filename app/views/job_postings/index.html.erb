@@ -1,31 +1,24 @@
 <h1>Listing job_postings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Job benchmark</th>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @job_postings.each do |job_posting| %>
-      <tr>
-        <td><%= job_posting.job_benchmark %></td>
-        <td><%= job_posting.user %></td>
-        <td><%= job_posting.title %></td>
-        <td><%= job_posting.description %></td>
-        <td><%= link_to 'Show', job_posting %></td>
-        <td><%= link_to 'Edit', edit_job_posting_path(job_posting) %></td>
-        <td><%= link_to 'Destroy', job_posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+	<div class="row">
+		<div class="col-md-1">
+			<%= image_tag job_posting.user.image, class: "img-circle", width: "100px" %>
+		</div>
+		<div class="col-md-6">
+			<h1><%= job_posting.title %></h1>
+			<p><%= job_posting.description %></p>
+		</div>
+		<div class="col-md-1">
+			<%= job_posting.assessment_discs.first.name %>
+		</div>
+		<div class="col-md-1">
+			<%= job_posting.assessment_values.first.name %>
+		</div>
+		<div class="col-md-1">
+			<%= job_posting.assessment_skills.first.name %>
+		</div>
+	</div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Job posting', new_job_posting_path %>

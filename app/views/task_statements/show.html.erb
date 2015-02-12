@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Onet:</strong>
+  <%= @task_statement.onet_id %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @task_statement.body %>
+</p>
+
+<%= link_to 'Edit', edit_task_statement_path(@task_statement) %> |
+<%= link_to 'Back', task_statements_path %>

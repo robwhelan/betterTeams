@@ -13,30 +13,53 @@
 	  <% end %>
 
 	  <div class="row">
-		  <div class="col-md-3"></div>
-		  <div class="col-md-6">
 			<div class="form-group" id="jobTitle">
-				<input class="form-control typeahead" id="job-title-input" type="text" placeholder="Job Title">
-			</div>		  	
+				<label>Job Title</label>
+				<%= f.text_field :title, class: "form-control typeahead", placeholder: "Job Title" %>
+				<!-- ><input class="form-control typeahead" id="job-title-input" type="text" placeholder="Job Title"> -->
+			</div>	
+		</div>	  	
+	  <div class="row hidden" id="taskStatements">
+		  <div class="form-group">
+			  <label>Description</label>
+			  <%= f.text_area :description, class: "form-control" %>
 		  </div>
-		  <div class="col-md-3">
-			  <h1 id="thisButton">This</h1>
-		  	<p id="disc_score_1"></p>
-		  	<p id="disc_score_2"></p>
-		  	<p id="disc_score_3"></p>
-		  	<p id="disc_score_4"></p>
-			<hr/>
-		  	<p id="value_score_1"></p>
-		  	<p id="value_score_2"></p>
-		  	<p id="value_score_3"></p>
-		  	<p id="value_score_4"></p>
-		  	<p id="value_score_5"></p>
-		  	<p id="value_score_6"></p>
+		  <div class="form-group">
+			  <label>Responsibilities</label>
+			  <%= f.text_field :task_01, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_02, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_03, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_04, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_05, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_06, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_07, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_08, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_09, class: "form-control" %>
+		  </div>
+		  <div class="form-group">
+			  <%= f.text_field :task_10, class: "form-control" %>
 		  </div>
 	  </div>
 	  <div id="controlDiv" class="hidden">
 		<div class="row">
 			<div class="col-md-3">
+				<p>Communication Styles</p>
 				<ul id="sortableDisc" class="list-unstyled">
 					<li id="disc_0" class="ui-state-default btn btn-success btn-lg btn-block"></li>
 					<li id="disc_1" class="ui-state-default btn btn-success btn-lg btn-block"></li>
@@ -45,6 +68,7 @@
 				</ul>
 			</div>
 			<div class="col-md-3">
+				<p>Values</p>
 				<ul id="sortableValue" class="list-unstyled">
 					<li id="value_0" class="ui-state-default btn btn-success btn-lg btn-block"></li>
 					<li id="value_1" class="ui-state-default btn btn-success btn-lg btn-block"></li>
@@ -55,6 +79,7 @@
 				</ul>
 			</div>
 			<div class="col-md-3">
+				<p>Soft Skills</p>
 				<ul id="sortableSkill" class="list-unstyled">
 					<li id="skill_0" class="ui-state-default btn btn-success btn-lg btn-block"></li>
 					<li id="skill_1" class="ui-state-default btn btn-success btn-lg btn-block"></li>
@@ -86,20 +111,8 @@
 	  <div id="values"></div>
 	  <div id="skills"></div>
 	  <div class="field">
-	    <%= f.label :job_benchmark_id %><br>
-	    <%= f.text_field :job_benchmark_id %>
-	  </div>
-	  <div class="field">
 	    <%= f.label :user_id %><br>
 	    <%= f.text_field :user_id %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :title %><br>
-	    <%= f.text_field :title %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :description %><br>
-	    <%= f.text_area :description %>
 	  </div>
 	  <div>
 	  	<input id="d0" name="disc_0">

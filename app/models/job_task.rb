@@ -1,4 +1,4 @@
 class JobTask < ActiveRecord::Base
+  belongs_to :task_statement
   belongs_to :job_benchmark
-  belongs_to :job_posting
 end

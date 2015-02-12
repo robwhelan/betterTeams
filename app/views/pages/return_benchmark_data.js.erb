@@ -1,4 +1,4 @@
-$('#controlDiv').removeClass('hidden');
+$('#controlDiv,#taskStatements').removeClass('hidden');
 
 var i=0;
 <% @discs.each do |d| %>
@@ -26,15 +26,28 @@ var i=3;
 	i++;
 <% end %>
 
+//doing the whole %03d thing to ensure there are leading zeroes so the scoring works properly
 var i=0;
 <% @skills.each do |s| %>
-	$('#skill_' + i).html('<%= s.name %>').attr('id', '#skill_' + '<%= s.id %>');
+	$('#skill_' + i).html('<%= s.name %>').attr('id', '#skill_' + '<%= "%02d" % s.id %>');
 	$('#s' + i).val('<%= s.id %>');
 	i++;
 <% end %>
-		
+
 var i=5;
 <% @non_skills.each do |s| %>
-	$('#skill_' + i).html('<%= s.name %>').attr('id', '#skill_' + '<%= s.id %>');
+	$('#skill_' + i).html('<%= s.name %>').attr('id', '#skill_' + '<%= "%02d" % s.id %>');
 	i++;
 <% end %>
+
+$('#job_posting_description').val('<%= @job_benchmark.description %>');
+$('#job_posting_task_01').val('<%= @tasks[0].body %>');
+$('#job_posting_task_02').val('<%= @tasks[1].body %>');
+$('#job_posting_task_03').val('<%= @tasks[2].body %>');
+$('#job_posting_task_04').val('<%= @tasks[3].body %>');
+$('#job_posting_task_05').val('<%= @tasks[4].body %>');
+$('#job_posting_task_06').val('<%= @tasks[5].body %>');
+$('#job_posting_task_07').val('<%= @tasks[6].body %>');
+$('#job_posting_task_08').val('<%= @tasks[7].body %>');
+$('#job_posting_task_09').val('<%= @tasks[8].body %>');
+$('#job_posting_task_10').val('<%= @tasks[9].body %>');

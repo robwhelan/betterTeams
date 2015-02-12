@@ -1,5 +1,11 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
+
   def home
+  end
+
+  def my_job_postings
+    @job_postings = current_user.job_postings
   end
 
   def return_benchmark_data
@@ -16,6 +22,8 @@ class PagesController < ApplicationController
     @skills = @job_benchmark.assessment_skills
     nonSkills = @skills.map(&:name)    
     @non_skills = AssessmentSkill.where.not(name: nonSkills)
+    
+    @tasks = @job_benchmark.task_statements
 
     respond_to do |format|
       format.js

@@ -21,6 +21,11 @@
 				<%= f.label :password_confirmation %><br />
 				<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 			</div>
+			
+			<div class="form-group">
+				<%= f.label "Link to Profile Image" %><br />
+				<%= f.text_field :image, class: "form-control" %>
+			</div>
 
 			<%= f.submit "Sign up", class: "btn btn-default pull-right" %>
 			<% end %>

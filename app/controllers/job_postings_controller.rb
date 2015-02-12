@@ -81,6 +81,6 @@ class JobPostingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_posting_params
-      params.require(:job_posting).permit(:job_benchmark_id, :user_id, :title, :description)
+      params.require(:job_posting).permit(:job_benchmark_id, :user_id, :title, :description, :task_01, :task_02, :task_03, :task_04,                                              :task_05, :task_06, :task_07, :task_08, :task_09, :task_10)
     end
 end

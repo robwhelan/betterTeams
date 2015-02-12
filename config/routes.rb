@@ -1,6 +1,11 @@
 Rails.application.routes.draw do  
   
+  resources :companies
+
+  resources :task_statements
+
   get 'pages/return_benchmark_data'
+  get 'pages/my_job_postings'
 
   resources :messages
 

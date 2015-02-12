@@ -7,6 +7,9 @@ class JobBenchmark < ActiveRecord::Base
 
   has_many :job_discs
   has_many :assessment_discs, through: :job_discs
+  
+  has_many :job_tasks
+  has_many :task_statements, through: :job_tasks
 
   has_many :job_postings
   has_many :job_tasks

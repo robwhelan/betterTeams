@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206185706) do
+ActiveRecord::Schema.define(version: 20150212013708) do
 
   create_table "assessment_discs", force: true do |t|
     t.string   "name"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20150206185706) do
   end
 
   create_table "assessment_values", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "companies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,6 +76,21 @@ ActiveRecord::Schema.define(version: 20150206185706) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "task_01"
+    t.string   "task_02"
+    t.string   "task_03"
+    t.string   "task_04"
+    t.string   "task_05"
+    t.string   "task_06"
+    t.string   "task_07"
+    t.string   "task_08"
+    t.string   "task_09"
+    t.string   "task_10"
+    t.string   "task_11"
+    t.string   "task_12"
+    t.string   "task_13"
+    t.string   "task_14"
+    t.string   "task_15"
   end
 
   add_index "job_postings", ["job_benchmark_id"], name: "index_job_postings_on_job_benchmark_id"
@@ -88,15 +109,14 @@ ActiveRecord::Schema.define(version: 20150206185706) do
   add_index "job_skills", ["job_posting_id"], name: "index_job_skills_on_job_posting_id"
 
   create_table "job_tasks", force: true do |t|
-    t.string   "name"
+    t.integer  "task_statement_id"
     t.integer  "job_benchmark_id"
-    t.integer  "job_posting_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "job_tasks", ["job_benchmark_id"], name: "index_job_tasks_on_job_benchmark_id"
-  add_index "job_tasks", ["job_posting_id"], name: "index_job_tasks_on_job_posting_id"
+  add_index "job_tasks", ["task_statement_id"], name: "index_job_tasks_on_task_statement_id"
 
   create_table "job_values", force: true do |t|
     t.integer  "assessment_value_id"
@@ -121,6 +141,13 @@ ActiveRecord::Schema.define(version: 20150206185706) do
   add_index "messages", ["job_posting_id"], name: "index_messages_on_job_posting_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
+  create_table "task_statements", force: true do |t|
+    t.string   "onet_id"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -134,6 +161,7 @@ ActiveRecord::Schema.define(version: 20150206185706) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

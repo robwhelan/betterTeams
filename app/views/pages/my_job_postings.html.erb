@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="col-md-12"><h3>My Job Postings</h3>
+		<div class="tabbable tabs-left">
+			<ul id="leftTabNames" class="nav nav-tabs">
+				<% @job_postings.each do |posting| %>
+					<li><a href="#posting_<%= posting.id %>" data-toggle="tab"><%= posting.title %></a></li>
+				<% end %>
+			</ul>
+			<div class="tab-content">
+				<% @job_postings.each do |posting| %>
+					<div class="tab-pane" id="posting_<%= posting.id %>">
+						<p><%= posting.description %><p>
+						<!-- render users, sorted by how they match -->
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
