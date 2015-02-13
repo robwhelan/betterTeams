@@ -48,6 +48,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
+    faker (1.1.2)
+      i18n (~> 0.5)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -136,6 +138,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 4.0.0)
   devise
+  faker
   jbuilder (~> 2.0)
   pg
   rails (= 4.1.5)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212013708) do
+ActiveRecord::Schema.define(version: 20150213183110) do
 
   create_table "assessment_discs", force: true do |t|
     t.string   "name"
@@ -147,6 +147,36 @@ ActiveRecord::Schema.define(version: 20150212013708) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_discs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "assessment_disc_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_discs", ["assessment_disc_id"], name: "index_user_discs_on_assessment_disc_id"
+  add_index "user_discs", ["user_id"], name: "index_user_discs_on_user_id"
+
+  create_table "user_skills", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "assessment_skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_skills", ["assessment_skill_id"], name: "index_user_skills_on_assessment_skill_id"
+  add_index "user_skills", ["user_id"], name: "index_user_skills_on_user_id"
+
+  create_table "user_values", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "assessment_value_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_values", ["assessment_value_id"], name: "index_user_values_on_assessment_value_id"
+  add_index "user_values", ["user_id"], name: "index_user_values_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
