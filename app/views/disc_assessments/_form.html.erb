@@ -37,7 +37,7 @@
 </div>
 
 <p class="hidden" id="questionNumber">1</p>		
-<div class="hidden">
+<div class="">
 	<%= form_for(@disc_assessment) do |f| %>
 	  <% if @disc_assessment.errors.any? %>
 	    <div id="error_explanation">
@@ -56,7 +56,6 @@
 	    <%= f.number_field :influencer_score, value: 0 %>
 	    <%= f.number_field :sociable_score, value: 0 %>
 	    <%= f.number_field :conscientious_score, value: 0 %>
-		<%= f.number_field :survey_time, value: 0 %>
 	    <%= f.submit id: "submitButton" %>
 	<% end %>
 </div>

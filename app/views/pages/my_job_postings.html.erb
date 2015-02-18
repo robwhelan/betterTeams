@@ -3,17 +3,21 @@
 		<div class="tabbable tabs-left">
 			<ul id="leftTabNames" class="nav nav-tabs">
 				<% @job_postings.each do |posting| %>
-					<li><a href="#posting_<%= posting.id %>" data-toggle="tab"><%= posting.title %></a></li>
+					<li><a class="jobPosting" data-job-posting-id="<%= posting.id %>" href="#posting_<%= posting.id %>" data-toggle="tab"><%= posting.title %></a></li>
 				<% end %>
 			</ul>
 			<div class="tab-content">
 				<% @job_postings.each do |posting| %>
-					<div class="tab-pane" id="posting_<%= posting.id %>">
-						<p><%= posting.description %><p>
-						<!-- render users, sorted by how they match -->
-					</div>
+					<div class="tab-pane" id="posting_<%= posting.id %>"></div>
 				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+					$('.jobPosting').click(function(){
+						var job_posting_id = $(this).attr('data-job-posting-id');
+						$.get('/pages/return_job_posting_users?job_posting=' + job_posting_id);
+					})
+					</script>

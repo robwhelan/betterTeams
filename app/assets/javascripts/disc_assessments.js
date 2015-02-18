@@ -73,7 +73,7 @@
 				
 				//get order of elements
 				var serializedOrder = finalList.sortable('toArray');
-				var score = 4;
+				var score = [5, 3, 1, 0];
 
 				//score teh response
 				for( i = 0; i < serializedOrder.length; i++ ){
@@ -82,29 +82,28 @@
 					switch(rank) {
 						case 1:
 							var driverScore = $('#disc_assessment_driver_score').val();
-							driverScore = parseInt(driverScore) + score;
+							driverScore = parseInt(driverScore) + score[i];
 							$('#disc_assessment_driver_score').val(driverScore);
 							break;
 						case 2: 
 							var influencerScore = $('#disc_assessment_influencer_score').val();
-							influencerScore = parseInt(influencerScore) + score;
+							influencerScore = parseInt(influencerScore) + score[i];
 							$('#disc_assessment_influencer_score').val(influencerScore);
 							break;
 						case 3:
 							var sociableScore = $('#disc_assessment_sociable_score').val();
-							sociableScore = parseInt(sociableScore) + score;
+							sociableScore = parseInt(sociableScore) + score[i];
 							$('#disc_assessment_sociable_score').val(sociableScore);
 							break;
 						case 4:
 							var conscientiousScore = $('#disc_assessment_conscientious_score').val();
-							conscientiousScore = parseInt(conscientiousScore) + score;
+							conscientiousScore = parseInt(conscientiousScore) + score[i];
 							$('#disc_assessment_conscientious_score').val(conscientiousScore);
 							break;
 						default:
 							alert("No rank detected at " + i);
 							break;
 					}
-					score--;
 				}
 				//push forward the progress bar
 				var multiplier = (100/15)*questionNumber;

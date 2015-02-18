@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   get 'pages/return_benchmark_data'
   get 'pages/my_job_postings'
-
+  get 'pages/job_matches'
+  
   resources :messages
 
   resources :job_postings

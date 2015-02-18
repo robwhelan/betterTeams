@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/stympy/faker.git
+  revision: 3ad557cb25d442d2a10df9ab4fae90e7877da69f
+  specs:
+    faker (1.4.3)
+      i18n (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,8 +55,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
-    faker (1.1.2)
-      i18n (~> 0.5)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -138,7 +143,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 4.0.0)
   devise
-  faker
+  faker!
   jbuilder (~> 2.0)
   pg
   rails (= 4.1.5)

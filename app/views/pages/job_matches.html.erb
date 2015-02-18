@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<h1><%= @job_posting.title %></h1>
+	</div>
+	<% @users.each do |user| %>
+		<div class="row">
+			<div class="col-md-1">
+				<button class="btn btn-lg button-score" data-job-fit-score="<%= user.job_fit_score %>"><%= user.job_fit_score %></button>
+			</div>
+			<div class="col-md-1">
+				<%= image_tag user.image, width: "75px", class: "img-circle" %>
+			</div>
+			<div class="col-md-3">
+				<h3><%= user.first_name %></h3>
+			</div>
+			<div class="col-md-1">
+				<%= user.assessment_discs[0].name %>
+			</div>
+			<div class="col-md-1">
+				<%= user.assessment_values[0].name %>
+			</div>
+			<div class="col-md-1">
+				<%= user.assessment_skills[0].name %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<%= content_for :javascript do %>
+<script type="text/javascript">
+
+for (i=0; i<$('.button-score').length; i++) {
+	var score = $('.button-score')[i].attributes[1].value;
+	if (score > 66) {
+		$($('.button-score')[i]).addClass('btn-success');
+	} else if (score < 66) {
+		$($('.button-score')[i]).addClass('btn-warning');		
+	}
+}
+
+</script>
+<% end %>

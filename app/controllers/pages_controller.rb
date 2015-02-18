@@ -7,6 +7,11 @@ class PagesController < ApplicationController
   def my_job_postings
     @job_postings = current_user.job_postings
   end
+  
+  def job_matches
+    @job_posting = JobPosting.find(params[:job_posting])
+    @users = User.matches_with_job_posting(@job_posting.id)
+  end
 
   def return_benchmark_data
     @job_benchmark = JobBenchmark.find_by_title(params[:jobTitle])

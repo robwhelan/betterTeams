@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'cancan'
 gem 'thin'
-gem 'faker'
+gem 'faker', :git => 'git://github.com/stympy/faker.git'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
