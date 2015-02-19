@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @value_assessment.user %>
+</p>
+
+<p>
+  <strong>Aesthetic score:</strong>
+  <%= @value_assessment.aesthetic_score %>
+</p>
+
+<p>
+  <strong>Individualistic score:</strong>
+  <%= @value_assessment.individualistic_score %>
+</p>
+
+<p>
+  <strong>Social score:</strong>
+  <%= @value_assessment.social_score %>
+</p>
+
+<p>
+  <strong>Theoretical score:</strong>
+  <%= @value_assessment.theoretical_score %>
+</p>
+
+<p>
+  <strong>Traditional score:</strong>
+  <%= @value_assessment.traditional_score %>
+</p>
+
+<p>
+  <strong>Utilitarian score:</strong>
+  <%= @value_assessment.utilitarian_score %>
+</p>
+
+<%= link_to 'Edit', edit_value_assessment_path(@value_assessment) %> |
+<%= link_to 'Back', value_assessments_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217213905) do
+ActiveRecord::Schema.define(version: 20150219004643) do
 
   create_table "assessment_discs", force: true do |t|
     t.string   "name"
@@ -201,5 +201,19 @@ ActiveRecord::Schema.define(version: 20150217213905) do
   add_index "users", ["company_id"], name: "index_users_on_company_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "value_assessments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "aesthetic_score"
+    t.integer  "individualistic_score"
+    t.integer  "social_score"
+    t.integer  "theoretical_score"
+    t.integer  "traditional_score"
+    t.integer  "utilitarian_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "value_assessments", ["user_id"], name: "index_value_assessments_on_user_id"
 
 end

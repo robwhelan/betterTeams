@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  aesthetic_score: 1
+  individualistic_score: 1
+  social_score: 1
+  theoretical_score: 1
+  traditional_score: 1
+  utilitarian_score: 1
+
+two:
+  user_id: 
+  aesthetic_score: 1
+  individualistic_score: 1
+  social_score: 1
+  theoretical_score: 1
+  traditional_score: 1
+  utilitarian_score: 1

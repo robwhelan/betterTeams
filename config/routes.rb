@@ -1,5 +1,7 @@
 Rails.application.routes.draw do  
   
+  resources :value_assessments
+
   resources :companies
 
   resources :task_statements
