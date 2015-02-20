@@ -7,48 +7,63 @@ Score 3	<input id="score_3" value="0">
 
 <p id="questionNumber">0</p>
 
-<p id="lower_bound_adjective">Not Descriptive</p><p id="upper_bound_adjective">Descriptive</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<h3 id="lower_bound_adjective">Disagree</h3>
+		</div>
+		<div class="col-md-8">
+			<div class="statement" id="statement_1">
+				<h3 id="statement_1_question"></h3>
+					<button class="btn btn-lg score_buttons_1" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-5">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_1" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-3">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_1" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-1">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_1" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="0">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_1" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="1">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_1" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="3">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_1" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="5">&nbsp;</button>
+				</p>
+			</div>
 
-<div class="statement" id="statement_1">
-	<p id="statement_1_question"></p>
-		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="-5">-3</button>
-		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="-3">-2</button>
-		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="-1">-1</button>
-		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="0">0</button>
-		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="1">1</button>
-		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="3">2</button>
-		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="5">3</button>
-	</p>
-</div>
+			<div class="statement" id="statement_2">
+				<h3 id="statement_2_question"></h3>
+					<button class="btn btn-lg score_buttons_2" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-5">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_2" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-3">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_2" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-1">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_2" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="0">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_2" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="1">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_2" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="3">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_2" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="5">&nbsp;</button>
+				</p>
+			</div>
 
-<div class="statement" id="statement_2">
-	<p id="statement_2_question"></p>
-		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="-5">-3</button>
-		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="-3">-2</button>
-		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="-1">-1</button>
-		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="0">0</button>
-		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="1">1</button>
-		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="3">2</button>
-		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="5">3</button>
-	</p>
-</div>
-
-<div class="statement" id="statement_3">
-	<p id="statement_3_question"></p>
-		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="-5">-3</button>
-		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="-3">-2</button>
-		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="-1">-1</button>
-		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="0">0</button>
-		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="1">1</button>
-		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="3">2</button>
-		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="5">3</button>
-	</p>
-</div>
-
-<div>
-	<button id="nextButton" class="btn btn-lg btn-primary disabled">Next</button>
-</div>
-
+			<div class="statement" id="statement_3">
+				<h3 id="statement_3_question"></h3>
+					<button class="btn btn-lg score_buttons_3" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-5">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_3" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-3">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_3" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="-1">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_3" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="0">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_3" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="1">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_3" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="3">&nbsp;</button>
+					<button class="btn btn-lg score_buttons_3" style="width:13%;" data-skill-index="0" data-multiplier="1" data-score="5">&nbsp;</button>
+				</p>
+			</div>
+			<hr />
+			<button id="nextButton" class="btn btn-block btn-lg btn-primary disabled">Next</button>
+		</div>
+		<div class="col-md-2">
+			<h3 id="upper_bound_adjective">Agree</h3>
+		</div>
+	</div><!-- / row -->
+	<hr/>
+	<div class="row">
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" id="progressBar" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 3%;">
+			</div>
+		</div>
+	</div>
+	
+</div><!-- /container -->
 
 <%= form_for(@skill_assessment) do |f| %>
   <% if @skill_assessment.errors.any? %>
@@ -95,6 +110,6 @@ Score 3	<input id="score_3" value="0">
 	</div>
 
   <div class="actions">
-    <%= f.submit %>
+	  <%= f.submit id: "submitButton" %>
   </div>
 <% end %>

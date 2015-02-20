@@ -18,6 +18,8 @@ $( document ).ready(function() {
 	var q1_done, q2_done, q3_done;
 
 	$('.score_buttons_1').click(function(){
+		$('.score_buttons_1').removeClass('btn-success');
+		$(this).addClass('btn-success');
 		var multiplier = $(this).attr('data-multiplier');
 		var score = $(this).attr('data-score');
 		var scoreIncrement = multiplier * score;
@@ -32,6 +34,8 @@ $( document ).ready(function() {
 	});
 
 	$('.score_buttons_2').click(function(){
+		$('.score_buttons_2').removeClass('btn-success');
+		$(this).addClass('btn-success');
 		var multiplier = $(this).attr('data-multiplier');
 		var score = $(this).attr('data-score');
 		var scoreIncrement = multiplier * score;
@@ -46,6 +50,8 @@ $( document ).ready(function() {
 	});
 
 	$('.score_buttons_3').click(function(){
+		$('.score_buttons_3').removeClass('btn-success');
+		$(this).addClass('btn-success');
 		var multiplier = $(this).attr('data-multiplier');
 		var score = $(this).attr('data-score');
 		var scoreIncrement = multiplier * score;
@@ -59,7 +65,54 @@ $( document ).ready(function() {
 		$('#score_3_skill_index').val(skillIndex);
 	});
 	
+	var progressBarWidths = ["width:6%;",
+		"width:9%;",
+		"width:12%;",
+		"width:15%;",
+		"width:18%;",
+		"width:21%;",
+		"width:24%;",
+		"width:27%;",
+		"width:30%;",
+		"width:33%;",
+		"width:36%;",
+		"width:39%;",
+		"width:42%;",
+		"width:45%;",
+		"width:48%;",
+		"width:51%;",
+		"width:54%;",
+		"width:57%;",
+		"width:60%;",
+		"width:63%;",
+		"width:66%;",
+		"width:69%;",
+		"width:72%;",
+		"width:75%;",
+		"width:79%;",
+		"width:82%;",
+		"width:85%;",
+		"width:89%;",
+		"width:95%;",
+	"width:100%;"];
+
 	$('#nextButton').click(function(){
+		//incremenet question count
+		var newQuestionNumber = parseInt($('#questionNumber').html()) + 1;
+		$('#questionNumber').html(newQuestionNumber);
+
+		//submit the form if we finished the last question
+		if(newQuestionNumber == 31) {
+			$('#submitButton').click();
+		}
+
+		//push forward the progress bar
+		var multiplier = (100/30)*newQuestionNumber;
+		var progressVal = multiplier;
+	
+		$('#progressBar').attr("aria-valuenow",multiplier)
+		$('#progressBar').attr("style", progressBarWidths[newQuestionNumber-1])
+
 		//populate big form inputs
 		var score_1_increment = $('#score_1').val();
 		var score_2_increment = $('#score_2').val();
@@ -91,11 +144,11 @@ $( document ).ready(function() {
 		q2_done = false;
 		q3_done = false;
 
-		//incremenet question count
-		var newQuestionNumber = parseInt($('#questionNumber').html()) + 1;
-		$('#questionNumber').html(newQuestionNumber);
 
-		//load next question
+		$('.score_buttons_1').removeClass('btn-success');
+		$('.score_buttons_2').removeClass('btn-success');
+		$('.score_buttons_3').removeClass('btn-success');
+
 		$('#statement_1_question').html(questionArray[3 * newQuestionNumber]);
 		$('#statement_2_question').html(questionArray[3 * newQuestionNumber + 1]);
 		$('#statement_3_question').html(questionArray[3 * newQuestionNumber + 2]);
@@ -108,9 +161,18 @@ $( document ).ready(function() {
 		 					 .attr('data-skill-index', skillIndexArray[3 * newQuestionNumber + 2]);
 							 
 		//change boundary adjectives if necessary
+		if (newQuestionNumber == 14) {
+			$('#lower_bound_adjective').html("Not Descriptive");
+			$('#upper_bound_adjective').html("Descriptive");
+		}
 							 
 		//change button to green Finish if at the last question
-		
+		if (newQuestionNumber == 30 ) {
+			$('#statement_3').addClass('hidden');
+			q3_done = true;
+			$('#nextButton').removeClass('btn-primary').addClass('btn-success').html("Finish");
+			
+		}
 	});
 
 
