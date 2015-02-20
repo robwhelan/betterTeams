@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  analytical_problem_solving_score: 1
+  conflict_management_score: 1
+  continuous_learning_score: 1
+  creativity_score: 1
+  customer_service_score: 1
+  decision_making_score: 1
+  diplomacy_score: 1
+  empathy_score: 1
+  employee_development_score: 1
+  flexibility_score: 1
+  futuristic_thinking_score: 1
+  goal_orientation_score: 1
+  interpersonal_skills_score: 1
+  leadership_score: 1
+  management_score: 1
+  negotiation_score: 1
+  personal_effectiveness_score: 1
+  persuasion_score: 1
+  planning_score: 1
+  presenting_score: 1
+  self_management_score: 1
+  teamwork_score: 1
+  written_communication_score: 1
+
+two:
+  user_id: 
+  analytical_problem_solving_score: 1
+  conflict_management_score: 1
+  continuous_learning_score: 1
+  creativity_score: 1
+  customer_service_score: 1
+  decision_making_score: 1
+  diplomacy_score: 1
+  empathy_score: 1
+  employee_development_score: 1
+  flexibility_score: 1
+  futuristic_thinking_score: 1
+  goal_orientation_score: 1
+  interpersonal_skills_score: 1
+  leadership_score: 1
+  management_score: 1
+  negotiation_score: 1
+  personal_effectiveness_score: 1
+  persuasion_score: 1
+  planning_score: 1
+  presenting_score: 1
+  self_management_score: 1
+  teamwork_score: 1
+  written_communication_score: 1

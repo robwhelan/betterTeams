@@ -1,0 +1,100 @@
+Score 1	<input id="score_1" value="0">
+		<input id="score_1_skill_index" value="0">
+Score 2	<input id="score_2" value="0">
+		<input id="score_2_skill_index" value="0">
+Score 3	<input id="score_3" value="0">
+		<input id="score_3_skill_index" value="0">
+
+<p id="questionNumber">0</p>
+
+<p id="lower_bound_adjective">Not Descriptive</p><p id="upper_bound_adjective">Descriptive</p>
+
+<div class="statement" id="statement_1">
+	<p id="statement_1_question"></p>
+		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="-5">-3</button>
+		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="-3">-2</button>
+		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="-1">-1</button>
+		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="0">0</button>
+		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="1">1</button>
+		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="3">2</button>
+		<button class="btn score_buttons_1" data-skill-index="0" data-multiplier="1" data-score="5">3</button>
+	</p>
+</div>
+
+<div class="statement" id="statement_2">
+	<p id="statement_2_question"></p>
+		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="-5">-3</button>
+		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="-3">-2</button>
+		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="-1">-1</button>
+		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="0">0</button>
+		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="1">1</button>
+		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="3">2</button>
+		<button class="btn score_buttons_2" data-skill-index="0" data-multiplier="1" data-score="5">3</button>
+	</p>
+</div>
+
+<div class="statement" id="statement_3">
+	<p id="statement_3_question"></p>
+		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="-5">-3</button>
+		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="-3">-2</button>
+		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="-1">-1</button>
+		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="0">0</button>
+		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="1">1</button>
+		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="3">2</button>
+		<button class="btn score_buttons_3" data-skill-index="0" data-multiplier="1" data-score="5">3</button>
+	</p>
+</div>
+
+<div>
+	<button id="nextButton" class="btn btn-lg btn-primary disabled">Next</button>
+</div>
+
+
+<%= form_for(@skill_assessment) do |f| %>
+  <% if @skill_assessment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@skill_assessment.errors.count, "error") %> prohibited this skill_assessment from being saved:</h2>
+
+      <ul>
+      <% @skill_assessment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+
+	<div id="skillFormInputs">
+	    <%= f.number_field :analytical_problem_solving_score, value: 0 %>
+	    <%= f.number_field :conflict_management_score, value: 0 %>
+	    <%= f.number_field :continuous_learning_score, value: 0 %>
+	    <%= f.number_field :creativity_score, value: 0 %>
+	    <%= f.number_field :customer_service_score, value: 0 %>
+	    <%= f.number_field :decision_making_score, value: 0 %>
+	    <%= f.number_field :diplomacy_score, value: 0 %>
+	    <%= f.number_field :empathy_score, value: 0 %>
+	    <%= f.number_field :employee_development_score, value: 0 %>
+	    <%= f.number_field :flexibility_score, value: 0 %>
+	    <%= f.number_field :futuristic_thinking_score, value: 0 %>
+	    <%= f.number_field :goal_orientation_score, value: 0 %>
+	    <%= f.number_field :interpersonal_skills_score, value: 0 %>
+	    <%= f.number_field :leadership_score, value: 0 %>
+	    <%= f.number_field :management_score, value: 0 %>
+	    <%= f.number_field :negotiation_score, value: 0 %>
+	    <%= f.number_field :personal_effectiveness_score, value: 0 %>
+	    <%= f.number_field :persuasion_score, value: 0 %>
+	    <%= f.number_field :planning_score, value: 0 %>
+	    <%= f.number_field :presenting_score, value: 0 %>
+	    <%= f.number_field :self_management_score, value: 0 %>
+	    <%= f.number_field :teamwork_score, value: 0 %>
+	    <%= f.number_field :written_communication_score, value: 0 %>
+	</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

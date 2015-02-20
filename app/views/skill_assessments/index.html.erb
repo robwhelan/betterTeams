@@ -1,0 +1,71 @@
+<h1>Listing skill_assessments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Analytical problem solving score</th>
+      <th>Conflict management score</th>
+      <th>Continuous learning score</th>
+      <th>Creativity score</th>
+      <th>Customer service score</th>
+      <th>Decision making score</th>
+      <th>Diplomacy score</th>
+      <th>Empathy score</th>
+      <th>Employee development score</th>
+      <th>Flexibility score</th>
+      <th>Futuristic thinking score</th>
+      <th>Goal orientation score</th>
+      <th>Interpersonal skills score</th>
+      <th>Leadership score</th>
+      <th>Management score</th>
+      <th>Negotiation score</th>
+      <th>Personal effectiveness score</th>
+      <th>Persuasion score</th>
+      <th>Planning score</th>
+      <th>Presenting score</th>
+      <th>Self management score</th>
+      <th>Teamwork score</th>
+      <th>Written communication score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skill_assessments.each do |skill_assessment| %>
+      <tr>
+        <td><%= skill_assessment.user %></td>
+        <td><%= skill_assessment.analytical_problem_solving_score %></td>
+        <td><%= skill_assessment.conflict_management_score %></td>
+        <td><%= skill_assessment.continuous_learning_score %></td>
+        <td><%= skill_assessment.creativity_score %></td>
+        <td><%= skill_assessment.customer_service_score %></td>
+        <td><%= skill_assessment.decision_making_score %></td>
+        <td><%= skill_assessment.diplomacy_score %></td>
+        <td><%= skill_assessment.empathy_score %></td>
+        <td><%= skill_assessment.employee_development_score %></td>
+        <td><%= skill_assessment.flexibility_score %></td>
+        <td><%= skill_assessment.futuristic_thinking_score %></td>
+        <td><%= skill_assessment.goal_orientation_score %></td>
+        <td><%= skill_assessment.interpersonal_skills_score %></td>
+        <td><%= skill_assessment.leadership_score %></td>
+        <td><%= skill_assessment.management_score %></td>
+        <td><%= skill_assessment.negotiation_score %></td>
+        <td><%= skill_assessment.personal_effectiveness_score %></td>
+        <td><%= skill_assessment.persuasion_score %></td>
+        <td><%= skill_assessment.planning_score %></td>
+        <td><%= skill_assessment.presenting_score %></td>
+        <td><%= skill_assessment.self_management_score %></td>
+        <td><%= skill_assessment.teamwork_score %></td>
+        <td><%= skill_assessment.written_communication_score %></td>
+        <td><%= link_to 'Show', skill_assessment %></td>
+        <td><%= link_to 'Edit', edit_skill_assessment_path(skill_assessment) %></td>
+        <td><%= link_to 'Destroy', skill_assessment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Skill assessment', new_skill_assessment_path %>

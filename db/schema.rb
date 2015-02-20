@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219004643) do
+ActiveRecord::Schema.define(version: 20150220010043) do
 
   create_table "assessment_discs", force: true do |t|
     t.string   "name"
@@ -140,6 +140,37 @@ ActiveRecord::Schema.define(version: 20150219004643) do
 
   add_index "messages", ["job_posting_id"], name: "index_messages_on_job_posting_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "skill_assessments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "analytical_problem_solving_score"
+    t.integer  "conflict_management_score"
+    t.integer  "continuous_learning_score"
+    t.integer  "creativity_score"
+    t.integer  "customer_service_score"
+    t.integer  "decision_making_score"
+    t.integer  "diplomacy_score"
+    t.integer  "empathy_score"
+    t.integer  "employee_development_score"
+    t.integer  "flexibility_score"
+    t.integer  "futuristic_thinking_score"
+    t.integer  "goal_orientation_score"
+    t.integer  "interpersonal_skills_score"
+    t.integer  "leadership_score"
+    t.integer  "management_score"
+    t.integer  "negotiation_score"
+    t.integer  "personal_effectiveness_score"
+    t.integer  "persuasion_score"
+    t.integer  "planning_score"
+    t.integer  "presenting_score"
+    t.integer  "self_management_score"
+    t.integer  "teamwork_score"
+    t.integer  "written_communication_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "skill_assessments", ["user_id"], name: "index_skill_assessments_on_user_id"
 
   create_table "task_statements", force: true do |t|
     t.string   "onet_id"

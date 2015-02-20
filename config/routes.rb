@@ -1,5 +1,7 @@
 Rails.application.routes.draw do  
   
+  resources :skill_assessments
+
   resources :value_assessments
 
   resources :companies
