@@ -1,11 +1,12 @@
+<div class="hidden">
 Score 1	<input id="score_1" value="0">
 		<input id="score_1_skill_index" value="0">
 Score 2	<input id="score_2" value="0">
 		<input id="score_2_skill_index" value="0">
 Score 3	<input id="score_3" value="0">
 		<input id="score_3_skill_index" value="0">
-
 <p id="questionNumber">0</p>
+</div>
 
 <div class="container">
 	<div class="row">
@@ -64,6 +65,7 @@ Score 3	<input id="score_3" value="0">
 	</div>
 	
 </div><!-- /container -->
+<div class="hidden">
 
 <%= form_for(@skill_assessment) do |f| %>
   <% if @skill_assessment.errors.any? %>
@@ -113,3 +115,4 @@ Score 3	<input id="score_3" value="0">
 	  <%= f.submit id: "submitButton" %>
   </div>
 <% end %>
+</div>
