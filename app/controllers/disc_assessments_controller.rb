@@ -27,12 +27,16 @@ class DiscAssessmentsController < ApplicationController
   def create
     @disc_assessment = DiscAssessment.new(disc_assessment_params)
     @disc_assessment.save
-    session[:new_disc_assessment] = true
+    session[:assessment_sequence] = true
     session[:disc_assessment_id] = @disc_assessment.id
     respond_to do |format|
       if @disc_assessment.save
-        format.html { redirect_to @disc_assessment, notice: 'Disc assessment was successfully created.' }
-        format.json { render :show, status: :created, location: @disc_assessment }
+        if session[:assessment_sequence]
+          format.html { redirect_to new_value_assessment_path }
+        else
+          format.html { redirect_to @disc_assessment, notice: 'Disc assessment was successfully created.' }
+          format.json { render :show, status: :created, location: @disc_assessment }
+        end
       else
         format.html { render :new }
         format.json { render json: @disc_assessment.errors, status: :unprocessable_entity }

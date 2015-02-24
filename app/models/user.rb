@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :job_postings
   has_many :disc_assessments
+  has_many :value_assessments
+  has_many :skill_assessments
   belongs_to :company
 
   has_many :user_discs
@@ -27,7 +29,7 @@ def self.matches_with_job_posting(job_posting_id)
 
   #the first part just filters out users who don't pass based matching needs
   y = User.all.find_all do |user|
-    job_posting.assessment_discs[0,2] == user.assessment_discs and
+    job_posting.assessment_discs[0,2] == user.assessment_discs[0,2] and
     (job_posting.assessment_values[0,3] & user.assessment_values).length >= 1 and
     (job_posting.assessment_skills[0,5] & user.assessment_skills).length >= 2
   end
@@ -70,5 +72,67 @@ def self.matches_with_job_posting(job_posting_id)
   return y.sort_by(&:job_fit_score).reverse
 
 end #self.matches_with_job_posting
+
+def assign_discs_to_user
+  
+  d = DiscAssessment.find(self.disc_assessments.last.id)
+  hash = {"Driver" => d.driver_score, "Influencer" => d.influencer_score, "Sociable" => d.sociable_score, "Conscientious" => d.conscientious_score}
+  array = hash.sort_by{|k,v| v}.reverse
+  
+  array.each do |disc|
+    self.assessment_discs << AssessmentDisc.find_by_name(disc[0])
+  end
+  
+end #assign_discs_to_user
+
+def assign_values_to_user
+  v = ValueAssessment.find(self.value_assessments.last.id)
+  hash = {  "Aesthetic" => v.aesthetic_score, 
+            "Economic" => v.utilitarian_score,
+            "Political" => v.individualistic_score,
+            "Social" => v.social_score,
+            "Theoretical" => v.theoretical_score,
+            "Traditional" => v.traditional_score }
+            
+  array = hash.sort_by{|k,v| v}.reverse
+  
+  array.each do |val|
+    self.assessment_values << AssessmentValue.find_by_name(val[0])
+  end
+end #assign_values_to_user
+
+def assign_skills_to_user
+  s = SkillAssessment.find(self.skill_assessments.last.id)
+  hash = {  "Analytical Problem Solving" => s.analytical_problem_solving_score,
+            "Conflict Management" => s.conflict_management_score,
+            "Continuous Learning" => s.continuous_learning_score,
+            "Creativity/Innovation" => s.creativity_score,
+            "Customer Service" => s.customer_service_score,
+            "Decision Making" => s.decision_making_score,
+            "Diplomacy" => s.diplomacy_score,
+            "Empathy" => s.empathy_score,
+            "Employee Development/Coaching" => s.employee_development_score,
+            "Flexibility" => s.flexibility_score,
+            "Futuristic Thinking" => s.futuristic_thinking_score,
+            "Goal Orientation" => s.goal_orientation_score,
+            "Interpersonal Skills" => s.interpersonal_skills_score,
+            "Leadership" => s.leadership_score,
+            "Management" => s.management_score,
+            "Negotiation" => s.negotiation_score,
+            "Personal Effectiveness" => s.personal_effectiveness_score,
+            "Persuasion" => s.persuasion_score,
+            "Planning and Organizing" => s.planning_score,
+            "Presenting" => s.presenting_score,
+            "Self-Management" => s.self_management_score,
+            "Teamwork" => s.teamwork_score,
+            "Written Communication" => s.written_communication_score }
+            
+  array = hash.sort_by{|k,v| v}.reverse
+  
+  array.each do |skill|
+    self.assessment_skills << AssessmentSkill.find_by_name(skill[0])
+  end
+end #assign_skills_to_user
+
 
 end

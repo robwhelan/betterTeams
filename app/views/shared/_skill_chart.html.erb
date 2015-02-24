@@ -1,0 +1,147 @@
+<div class="row">
+	<canvas id="skillChart"></canvas>
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<h3>Analytical Problem Solving</h3><p>Anticipating, analyzing, diagnosing, and resolving problems.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Conflict Management</h3><p>Addressing and resolving conflict constructively.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Continuous Learning</h3><p>Taking initiative in learning and implementing new concepts, technologies and/or methods.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Creativity / Innovation</h3><p>Adapting traditional or devising new approaches, concepts, methods, models, designs, processes, technologies and/or systems.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Customer Service</h3><p>Anticipating, meeting and/or exceeding customer needs, wants and expectations.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Decision Making</h3><p>Utilizing effective processes to make decisions.</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2">	
+		<h3>Diplomacy</h3><p>Effectively handling difficult or sensitive issues by utilizing tact, diplomacy and an understanding of organizational culture, climate and/or politics.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Empathy</h3><p>Identifying with and caring about others.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Employee Development / Coaching</h3><p>Facilitating and supporting the professional growth of others.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Flexibility</h3><p>Agility in adapting to change.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Futuristic Thinking</h3><p>Imagining, envisioning, projecting and/or predicting what has not yet been realized.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Goal Orientation</h3><p>Energetically focusing efforts on meeting a goal, mission or objective.</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<h3>Interpersonal Skills</h3><p>Effectively communicating, building rapport and relating well to all kinds of people.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Leadership</h3><p>Achieving extraordinary business results through people.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Management</h3><p>Achieving extraordinary results through effective management of resources, systems and processes.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Negotiation</h3><p>Facilitating agreements between two or more parties.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Personal Effectiveness</h3><p>Demonstrating initiative, self-confidence, resiliency and a willingness to take responsibility for personal actions.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Persuasion</h3><p>Convincing others to change the way they think, believe or behave.</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<h3>Planning and Organizing</h3><p>Utilizing logical, systematic and orderly procedures to meet objectives.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Presenting</h3><p>Communicating effectively to groups.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Self-Management</h3><p>Demonstrating self control and an ability to manage time and priorities.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Teamwork</h3><p>Working effectively and productively with others.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Written Communication</h3><p>Writing clearly, succinctly and understandably.</p>
+	</div>
+</div>
+<p>Source: http://www.ttisuccessinsights.com/how/five-sciences/competencies</p>
+<script type="text/javascript">
+	var ctx = document.getElementById("skillChart").getContext("2d");
+	document.getElementById("skillChart").width = 1200;
+	document.getElementById("skillChart").height = 500;
+
+	var data = {
+	    labels: ['Analytical Problem Solving',
+					'Conflict Management',
+					'Continuous Learning',
+					'Creativity/Innovation',
+					'Customer Service',
+					'Decision Making',
+					'Diplomacy',
+					'Empathy',
+					'Employee Development/Coaching',
+					'Flexibility',
+					'Futuristic Thinking',
+					'Goal Orientation',
+					'Interpersonal Skills',
+					'Leadership',
+					'Management',
+					'Negotiation',
+					'Personal Effectiveness',
+					'Persuasion',
+					'Planning and Organizing',
+					'Presenting',
+					'Self-Management',
+					'Teamwork',
+					'Written Communication'],
+	    datasets: [
+	        {
+	            label: "My Values",
+	            fillColor: "rgba(220,220,220,0.5)",
+	            strokeColor: "rgba(220,220,220,0.8)",
+	            highlightFill: "rgba(220,220,220,0.75)",
+	            highlightStroke: "rgba(220,220,220,1)",
+	            data: [ <%= @skill_assessment.analytical_problem_solving_score %>,
+						<%= @skill_assessment.conflict_management_score %>,
+						<%= @skill_assessment.continuous_learning_score %>,
+						<%= @skill_assessment.creativity_score %>,
+						<%= @skill_assessment.customer_service_score %>,
+						<%= @skill_assessment.decision_making_score %>,
+						<%= @skill_assessment.diplomacy_score %>,
+						<%= @skill_assessment.empathy_score %>,
+						<%= @skill_assessment.employee_development_score %>,
+						<%= @skill_assessment.flexibility_score %>,
+						<%= @skill_assessment.futuristic_thinking_score %>,
+						<%= @skill_assessment.goal_orientation_score %>,
+						<%= @skill_assessment.interpersonal_skills_score %>,
+						<%= @skill_assessment.leadership_score %>,
+						<%= @skill_assessment.management_score %>,
+						<%= @skill_assessment.negotiation_score %>,
+						<%= @skill_assessment.personal_effectiveness_score %>,
+						<%= @skill_assessment.persuasion_score %>,
+						<%= @skill_assessment.planning_score %>,
+						<%= @skill_assessment.presenting_score %>,
+						<%= @skill_assessment.self_management_score %>,
+						<%= @skill_assessment.teamwork_score %>,
+						<%= @skill_assessment.written_communication_score %>
+				]
+	        }
+	    ]
+	};
+
+	var myBarChart = new Chart(ctx).Bar(data);
+</script>

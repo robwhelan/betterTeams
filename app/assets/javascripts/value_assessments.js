@@ -160,7 +160,7 @@
 								.removeClass("btn-success")
 								.addClass("btn-primary");
 				
-				if(questionNumber == 9) {
+				if(questionNumber == 10) {
 					$('#nextButton').html('Finish');
 				}
 

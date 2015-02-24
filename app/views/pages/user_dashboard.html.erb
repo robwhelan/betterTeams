@@ -1,0 +1,25 @@
+<div class="container">
+	<div role="tabpanel">
+
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a href="#discs" aria-controls="discs" role="tab" data-toggle="tab">Behaviors</a></li>
+		<li role="presentation"><a href="#values" aria-controls="values" role="tab" data-toggle="tab">Values</a></li>
+		<li role="presentation"><a href="#skills" aria-controls="skills" role="tab" data-toggle="tab">Soft Skills</a></li>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="discs">
+			<%= render 'shared/disc_chart' %>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="values">
+			<%= render 'shared/value_chart' %>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="skills">
+			<%= render 'shared/skill_chart' %>
+		</div>
+	</div>
+
+	</div>
+</div>

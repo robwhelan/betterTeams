@@ -1,5 +1,6 @@
 class SkillAssessmentsController < ApplicationController
   before_action :set_skill_assessment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show]
 
   # GET /skill_assessments
   # GET /skill_assessments.json
@@ -25,10 +26,13 @@ class SkillAssessmentsController < ApplicationController
   # POST /skill_assessments.json
   def create
     @skill_assessment = SkillAssessment.new(skill_assessment_params)
+    @skill_assessment.save
+    session[:skill_assessment_id] = @skill_assessment.id
 
     respond_to do |format|
       if @skill_assessment.save
-        format.html { redirect_to @skill_assessment, notice: 'Skill assessment was successfully created.' }
+        #probably need to send them over to some dashboard instead of the skill view.
+        format.html { redirect_to pages_user_dashboard_path, notice: 'Skill assessment was successfully created.' }
         format.json { render :show, status: :created, location: @skill_assessment }
       else
         format.html { render :new }

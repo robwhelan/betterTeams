@@ -1,5 +1,6 @@
 class ValueAssessmentsController < ApplicationController
   before_action :set_value_assessment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show]
 
   # GET /value_assessments
   # GET /value_assessments.json
@@ -25,11 +26,17 @@ class ValueAssessmentsController < ApplicationController
   # POST /value_assessments.json
   def create
     @value_assessment = ValueAssessment.new(value_assessment_params)
+    @value_assessment.save
+    session[:value_assessment_id] = @value_assessment.id
 
     respond_to do |format|
       if @value_assessment.save
-        format.html { redirect_to @value_assessment, notice: 'Value assessment was successfully created.' }
-        format.json { render :show, status: :created, location: @value_assessment }
+        if session[:assessment_sequence]
+          format.html { redirect_to new_skill_assessment_path }
+        else
+          format.html { redirect_to @value_assessment, notice: 'Value assessment was successfully created.' }
+          format.json { render :show, status: :created, location: @value_assessment }
+        end
       else
         format.html { render :new }
         format.json { render json: @value_assessment.errors, status: :unprocessable_entity }

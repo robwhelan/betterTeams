@@ -12,6 +12,17 @@ class PagesController < ApplicationController
     @job_posting = JobPosting.find(params[:job_posting])
     @users = User.matches_with_job_posting(@job_posting.id)
   end
+  
+  def user_dashboard
+    if params[:user] 
+      @user = User.find(params[:user])
+    else
+      @user = current_user
+    end
+    @disc_assessment = @user.disc_assessments.last
+    @value_assessment = @user.value_assessments.last
+    @skill_assessment = @user.skill_assessments.last
+  end
 
   def return_benchmark_data
     @job_benchmark = JobBenchmark.find_by_title(params[:jobTitle])

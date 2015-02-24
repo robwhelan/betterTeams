@@ -33,7 +33,7 @@ for (i=0; i<$('.button-score').length; i++) {
 	var score = $('.button-score')[i].attributes[1].value;
 	if (score > 66) {
 		$($('.button-score')[i]).addClass('btn-success');
-	} else if (score < 66) {
+	} else if (score <= 66) {
 		$($('.button-score')[i]).addClass('btn-warning');		
 	}
 }

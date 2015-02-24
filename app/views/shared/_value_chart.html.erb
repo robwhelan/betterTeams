@@ -1,0 +1,89 @@
+<div class="row">
+	<canvas id="valueChart"></canvas>
+</div>
+<hr/>
+<div class="row">
+	<div class="col-md-2">
+		<h3>Aesthetic</h3>
+		<p>A higher Aesthetic score indicates a relative interest in "form and harmony." Each
+experience is judged from the standpoint of grace, symmetry or fitness. Life may be
+regarded as a procession of events, and each is enjoyed for its own sake. A high
+score here does not necessarily mean that the incumbent has talents in creative
+artistry. It indicates a primary interest in the artistic episodes of life.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Economic</h3>
+		<p>The Utilitarian score shows a characteristic interest in money and what is useful. This
+means that an individual wants to have the security that money brings not only for
+themselves, but for their present and future family. This motivator includes the
+practical affairs of the business world - the production, marketing and consumption of
+goods, the use of credit, and the accumulation of tangible wealth. This type of
+individual is thoroughly practical and conforms well to the stereotype of the average
+business person. A person with a high score is likely to have a high need to surpass
+others in wealth.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Individualistic</h3>
+		<p>The primary interest for this motivator is POWER, not necessarily politics. Research
+studies indicate that leaders in most fields have a high power drive. Since competition
+and struggle play a large part in all areas of life, many philosophers have seen power
+as the most universal and most fundamental of motives. There are, however, certain
+personalities in whom the desire for direct expression of this motive is uppermost; who
+wish, above all, for personal power, influence and renown.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Social</h3>
+		<p>Those who score very high for this motivator have an inherent love of people. The
+social person prizes other people and is, therefore, kind, sympathetic and unselfish.
+They are likely to find the Theoretical, Utilitarian and Aesthetic attitudes cold and
+inhuman. Compared to the Individualistic motivator, the Social person regards helping
+others as the only suitable form for human relationships. Research indicates that in its
+purest form, the Social interest is selfless.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Traditional</h3>
+		<p>The highest interest for this motivator may be called "unity," "order," or "tradition."
+Individuals with high scores for this motivator seek a system for living. This system
+can be found in such things as conservatism or any authority that has defined rules,
+regulations and principles for living.</p>
+	</div>
+	<div class="col-md-2">
+		<h3>Theoretical</h3>
+		<p>The primary drive with this motivator is the discovery of TRUTH. In pursuit of this
+drive, an individual takes a "cognitive" attitude. Such an individual is nonjudgmental
+regarding the beauty or utility of objects and seeks only to observe and to reason.
+Since the interests of the theoretical person are empirical, critical and rational, the
+person appears to be an intellectual. The chief aim in life is to order and systematize
+knowledge: knowledge for the sake of knowledge.</p>
+	</div>
+</div><!-- /row -->
+<p>Source: http://www.ttisuccessinsights.com/how/five-sciences/motivators</p>
+
+
+<script type="text/javascript">
+	var ctx = document.getElementById("valueChart").getContext("2d");
+	document.getElementById("valueChart").width = 800;
+	document.getElementById("valueChart").height = 500;
+
+	var data = {
+	    labels: ["Aesthetic", "Economic", "Political", "Social", "Theoretical", "Traditional"],
+	    datasets: [
+	        {
+	            label: "My Values",
+	            fillColor: "rgba(220,220,220,0.5)",
+	            strokeColor: "rgba(220,220,220,0.8)",
+	            highlightFill: "rgba(220,220,220,0.75)",
+	            highlightStroke: "rgba(220,220,220,1)",
+	            data: [ <%= @value_assessment.aesthetic_score %>,
+						<%= @value_assessment.utilitarian_score %>,
+						<%= @value_assessment.individualistic_score %>,
+						<%= @value_assessment.social_score %>,
+						<%= @value_assessment.theoretical_score %>,
+						<%= @value_assessment.traditional_score %>
+				]
+	        }
+	    ]
+	};
+
+	var myBarChart = new Chart(ctx).Bar(data);
+</script>

@@ -1,6 +1,5 @@
-<div class="container">
 	<div class="row">
-		<canvas id="discChart" width="400" height="400"></canvas>
+		<canvas id="discChart"></canvas>
 	</div>
 	<div class="row">
 		<div class="col-md-3">
@@ -114,10 +113,10 @@
 		</div>
 	</div>
 	<p>Source: https://www.discprofile.com/what-is-disc/overview/</p>
-</div>
-
 <script type="text/javascript">
 	var ctx = document.getElementById("discChart").getContext("2d");
+	document.getElementById("discChart").width = 800;
+	document.getElementById("discChart").height = 500;
 
 	var data = {
 		labels: ["Driver", "Influencer", "Sociable", "Conscientious"],
@@ -141,7 +140,3 @@
 	var myRadarChart = new Chart(ctx).Radar(data);
 	//new Chart(ctx).PolarArea(data, options);
 </script>
-
-<div class="hidden">
-<%= link_to 'Back', disc_assessments_path %>
-</div>

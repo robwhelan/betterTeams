@@ -26,7 +26,7 @@ $( document ).ready(function() {
 		var skillIndex = $(this).attr('data-skill-index');
 		q1_done = true;
 		if(q1_done && q2_done && q3_done){
-			$('#nextButton').removeClass('disabled');
+			$('#nextButton').removeClass('disabled').addClass('btn-success');
 		}
 		
 		$('#score_1').val(scoreIncrement);
@@ -42,7 +42,7 @@ $( document ).ready(function() {
 		var skillIndex = $(this).attr('data-skill-index');
 		q2_done = true;
 		if(q1_done && q2_done && q3_done){
-			$('#nextButton').removeClass('disabled');
+			$('#nextButton').removeClass('disabled').addClass('btn-success');
 		}
 
 		$('#score_2').val(scoreIncrement);
@@ -58,7 +58,7 @@ $( document ).ready(function() {
 		var skillIndex = $(this).attr('data-skill-index');
 		q3_done = true;
 		if(q1_done && q2_done && q3_done){
-			$('#nextButton').removeClass('disabled');
+			$('#nextButton').removeClass('disabled').addClass('btn-success');
 		}
 
 		$('#score_3').val(scoreIncrement);
@@ -139,7 +139,7 @@ $( document ).ready(function() {
 		$('#score_1_skill_index').val(0);
 		$('#score_2_skill_index').val(0);
 		$('#score_3_skill_index').val(0);
-		$('#nextButton').addClass('disabled');
+		$('#nextButton').addClass('disabled').removeClass('btn-success');
 		q1_done = false;
 		q2_done = false;
 		q3_done = false;
