@@ -10,10 +10,6 @@ AssessmentValue.create(:name => "Social")
 AssessmentValue.create(:name => "Theoretical")
 AssessmentValue.create(:name => "Traditional")
 
-5,7,13,19,23 start -- all good
-5,7,3,9,3
-
-
 AssessmentSkill.create(:name => "Analytical Problem Solving")
 AssessmentSkill.create(:name => "Conflict Management")
 AssessmentSkill.create(:name => "Continuous Learning")

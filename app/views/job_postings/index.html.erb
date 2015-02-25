@@ -1,13 +1,21 @@
 <div class="container">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-6"></div>
+		<div class="col-md-1"><p>Top Behavior</p></div>
+		<div class="col-md-1"><p>Top Value</p></div>
+		<div class="col-md-1"><p>Top Soft Skill</p></div>
+	</div>
+	<hr/>
     <% @job_postings.each do |job_posting| %>
 	<div class="row">
 		<div class="col-md-1">
 			<%= image_tag job_posting.user.image, class: "img-circle", width: "90px" %>
 		</div>
 		<div class="col-md-6">
-			<%= link_to pages_job_matches_path(job_posting: job_posting) do %>
+			<%= link_to job_posting do %>
 				<h1><%= job_posting.title %></h1>
-				<% end %>
+			<% end %>
 			<p><%= job_posting.description %></p>
 		</div>
 		<div class="col-md-1">
@@ -18,6 +26,11 @@
 		</div>
 		<div class="col-md-1">
 			<%= job_posting.assessment_skills.first.name %>
+		</div>
+		<div class="col-md-2">
+			<%= link_to pages_job_matches_path(job_posting: job_posting) do %>
+				<button class="btn btn-success">Candidates</button>
+			<% end %>
 		</div>
 	</div>
     <% end %>

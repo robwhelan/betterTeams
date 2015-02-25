@@ -1,6 +1,6 @@
 class JobPostingsController < ApplicationController
   before_action :set_job_posting, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   # GET /job_postings
   # GET /job_postings.json
@@ -11,6 +11,11 @@ class JobPostingsController < ApplicationController
   # GET /job_postings/1
   # GET /job_postings/1.json
   def show
+    @job_posting = JobPosting.find(params[:id])
+    @first_disc = @job_posting.assessment_discs[0]
+    @second_disc = @job_posting.assessment_discs[1]
+    @job_values = @job_posting.assessment_values
+    @job_skills = @job_posting.assessment_skills
   end
 
   # GET /job_postings/new

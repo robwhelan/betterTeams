@@ -1,24 +1,44 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Job benchmark:</strong>
-  <%= @job_posting.job_benchmark %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @job_posting.user %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @job_posting.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @job_posting.description %>
-</p>
-
-<%= link_to 'Edit', edit_job_posting_path(@job_posting) %> |
-<%= link_to 'Back', job_postings_path %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><%= @job_posting.title %></h1>
+			<p><%= @job_posting.description %></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h1>Behaviors</h1>
+			<h3>Main: <%= @first_disc.name %></h3>
+			<h3>Secondary: <%= @second_disc.name %></h3>
+		</div>
+		<div class="col-md-4">
+			<h1>Values</h1>
+			<h3><%= @job_values[0].name %></h3>
+			<h3><%= @job_values[1].name %></h3>
+			<h3><%= @job_values[2].name %></h3>
+		</div>
+		<div class="col-md-4">
+			<h1>Soft Skills</h1>
+			<h3><%= @job_skills[0].name %></h3>
+			<h3><%= @job_skills[1].name %></h3>
+			<h3><%= @job_skills[2].name %></h3>
+			<h3><%= @job_skills[3].name %></h3>
+			<h3><%= @job_skills[4].name %></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Responsibilities</h1>
+			<p><%= @job_posting.task_01 %></p>
+			<p><%= @job_posting.task_02 %></p>
+			<p><%= @job_posting.task_03 %></p>
+			<p><%= @job_posting.task_04 %></p>
+			<p><%= @job_posting.task_05 %></p>
+			<p><%= @job_posting.task_06 %></p>
+			<p><%= @job_posting.task_07 %></p>
+			<p><%= @job_posting.task_08 %></p>
+			<p><%= @job_posting.task_09 %></p>
+			<p><%= @job_posting.task_10 %></p>
+		</div>
+	</div><!-- /row -->
+</div><!-- /container -->
