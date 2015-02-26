@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'pages/my_job_postings'
   get 'pages/job_matches'
   get 'pages/user_dashboard'
+  get 'pages/demo'
   
   resources :messages
 

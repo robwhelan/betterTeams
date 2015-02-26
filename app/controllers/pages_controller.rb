@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:demo]
 
   def home
+  end
+  
+  def demo
   end
 
   def my_job_postings
