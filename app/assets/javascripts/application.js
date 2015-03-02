@@ -11,3 +11,4 @@
 // about supported directives.
 //
 //= require turbolinks
+//= require jquery.ui.touch-punch.min
