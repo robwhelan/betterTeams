@@ -29,7 +29,7 @@ $( document ).ready(function() {
 	  };
 	};
  
-	var jobTitles = ['Receptionist', 'Programmer', 'Barista', 'Construction', 'Woodworker', 'Quickbooks Person', 'Recreation Supervisor'];
+	var jobTitles = ['Concierge', 'Receptionist', 'Programmer', 'Barista', 'Construction', 'Woodworker', 'Quickbooks Person', 'Recreation Supervisor'];
 	function scoreDisc(){
 		var discList = $('#sortableDisc');
 		$($(discList).children()[0]).addClass("btn-success").removeClass("btn-default");

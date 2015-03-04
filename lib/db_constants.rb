@@ -1,38 +1,4 @@
-AssessmentDisc.create(:name => "Driver")
-AssessmentDisc.create(:name => "Influencer")
-AssessmentDisc.create(:name => "Sociable")
-AssessmentDisc.create(:name => "Conscientious")
 
-AssessmentValue.create(:name => "Aesthetic")
-AssessmentValue.create(:name => "Economic")
-AssessmentValue.create(:name => "Political")
-AssessmentValue.create(:name => "Social")
-AssessmentValue.create(:name => "Theoretical")
-AssessmentValue.create(:name => "Traditional")
-
-AssessmentSkill.create(:name => "Analytical Problem Solving")
-AssessmentSkill.create(:name => "Conflict Management")
-AssessmentSkill.create(:name => "Continuous Learning")
-AssessmentSkill.create(:name => "Creativity/Innovation")
-AssessmentSkill.create(:name => "Customer Service")
-AssessmentSkill.create(:name => "Decision Making")
-AssessmentSkill.create(:name => "Diplomacy")
-AssessmentSkill.create(:name => "Empathy")
-AssessmentSkill.create(:name => "Employee Development/Coaching")
-AssessmentSkill.create(:name => "Flexibility")
-AssessmentSkill.create(:name => "Futuristic Thinking")
-AssessmentSkill.create(:name => "Goal Orientation")
-AssessmentSkill.create(:name => "Interpersonal Skills")
-AssessmentSkill.create(:name => "Leadership")
-AssessmentSkill.create(:name => "Management")
-AssessmentSkill.create(:name => "Negotiation")
-AssessmentSkill.create(:name => "Personal Effectiveness")
-AssessmentSkill.create(:name => "Persuasion")
-AssessmentSkill.create(:name => "Planning and Organizing")
-AssessmentSkill.create(:name => "Presenting")
-AssessmentSkill.create(:name => "Self-Management")
-AssessmentSkill.create(:name => "Teamwork")
-AssessmentSkill.create(:name => "Written Communication")
 TaskStatement.create(:onet_id => 1, :body => "Operate telephone switchboard to answer, screen, or forward calls, providing information, taking messages, or scheduling appointments.")
 TaskStatement.create(:onet_id => 2, :body => "Greet persons entering establishment, determine nature and purpose of visit, and direct or escort them to specific destinations.")
 TaskStatement.create(:onet_id => 3, :body => "Schedule appointments and maintain and update appointment calendars.")
@@ -44,21 +10,7 @@ TaskStatement.create(:onet_id => 8, :body => "Transmit information or documents 
 TaskStatement.create(:onet_id => 9, :body => "Analyze data to determine answers to questions from customers or members of the public.")
 TaskStatement.create(:onet_id => 10, :body => "Collect, sort, distribute, or prepare mail, messages, or courier deliveries.")
 
-AssessmentSkill.all.each do |d|
-  d.destroy
-end
-AssessmentValue.all.each do |d|
-  d.destroy
-end
-AssessmentDisc.all.each do |d|
-  d.destroy
-end
-TaskStatement.all.each do |d|
-  d.destroy
-end
-JobTask.all.each do |d|
-  d.destroy
-end
+
 
 #create a receptionist
 j=JobBenchmark.create(:title => "Receptionist", :description => "Answer inquiries and provide information to the general public, customers, visitors, and other interested parties regarding activities conducted at establishment and location of departments, offices, and employees within the organization.")
