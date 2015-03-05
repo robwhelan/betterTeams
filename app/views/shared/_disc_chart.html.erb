@@ -114,11 +114,11 @@
 	</div>
 	<p>Source: https://www.discprofile.com/what-is-disc/overview/</p>
 <script type="text/javascript">
-	var ctx = document.getElementById("discChart").getContext("2d");
+	var discCtx = document.getElementById("discChart").getContext("2d");
 	document.getElementById("discChart").width = 800;
 	document.getElementById("discChart").height = 500;
-
-	var data = {
+	
+	var discData = {
 		labels: ["Driver", "Influencer", "Sociable", "Conscientious"],
 		datasets: [
 		    {
@@ -137,6 +137,6 @@
 		]
 	};
 	
-	var myRadarChart = new Chart(ctx).Radar(data);
+	var myRadarChart = new Chart(discCtx).Radar(discData);
 	//new Chart(ctx).PolarArea(data, options);
 </script>

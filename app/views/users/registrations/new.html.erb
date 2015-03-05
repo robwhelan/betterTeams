@@ -31,7 +31,7 @@
 				<%= f.label "Link to Profile Image (optional)" %><br />
 				<%= f.text_field :image, class: "form-control" %>
 			</div>
-
+			<%= link_to 'Sign in', new_user_session_path %>
 			<%= f.submit "Sign up", class: "btn btn-default pull-right" %>
 			<% end %>
 		</div>

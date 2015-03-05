@@ -7,6 +7,16 @@ class PagesController < ApplicationController
   def demo
   end
 
+  def add_user_to_dashboard
+    @added_user = User.find(params[:user])
+    @disc_assessment = @added_user.disc_assessments.last
+    @value_assessment = @added_user.value_assessments.last
+    @skill_assessment = @added_user.skill_assessments.last    
+    respond_to do |format|
+      format.js
+    end    
+  end
+
   def my_job_postings
     @job_postings = current_user.job_postings
   end
@@ -25,6 +35,8 @@ class PagesController < ApplicationController
     @disc_assessment = @user.disc_assessments.last
     @value_assessment = @user.value_assessments.last
     @skill_assessment = @user.skill_assessments.last
+    @users = User.all
+    gon.users = @users
   end
 
   def return_benchmark_data

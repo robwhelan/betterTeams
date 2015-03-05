@@ -1,0 +1,84 @@
+//add new dataset to discData.datasets.
+discData.datasets.push({
+	data: [ '<%= @disc_assessment.driver_score %>',
+		 	'<%= @disc_assessment.influencer_score%>',
+			'<%= @disc_assessment.sociable_score %>',
+			'<%= @disc_assessment.conscientious_score %>'
+	],
+	label: '<%= @added_user.first_name %>',
+	fillColor: "rgba(151,187,205,0.2)",
+	strokeColor: "rgba(151,187,205,1)",
+	pointColor: "rgba(151,187,205,1)",
+	pointStrokeColor: "#fff",
+	pointHighlightFill: "#fff",
+	pointHighlightStroke: "rgba(151,187,205,1)"
+});
+
+//repeat for valueData and skillData and their charts.
+valueData.datasets.push({
+	label: '<%= @added_user.first_name %>',
+	fillColor: "rgba(151,187,205,0.2)",
+	strokeColor: "rgba(151,187,205,1)",
+    highlightFill: "#fff",
+    highlightStroke: "rgba(151,187,205,1)",
+    data: [ '<%= @value_assessment.aesthetic_score %>',
+			'<%= @value_assessment.utilitarian_score %>',
+			'<%= @value_assessment.individualistic_score %>',
+			'<%= @value_assessment.social_score %>',
+			'<%= @value_assessment.theoretical_score %>',
+			'<%= @value_assessment.traditional_score %>'
+	]
+});			
+
+skillData.datasets.push({
+	label: '<%= @added_user.first_name %>',
+	fillColor: "rgba(151,187,205,0.2)",
+	strokeColor: "rgba(151,187,205,1)",
+    highlightFill: "#fff",
+    highlightStroke: "rgba(151,187,205,1)",
+    data: [ '<%= @skill_assessment.analytical_problem_solving_score %>',
+			'<%= @skill_assessment.conflict_management_score %>',
+			'<%= @skill_assessment.continuous_learning_score %>',
+			'<%= @skill_assessment.creativity_score %>',
+			'<%= @skill_assessment.customer_service_score %>',
+			'<%= @skill_assessment.decision_making_score %>',
+			'<%= @skill_assessment.diplomacy_score %>',
+			'<%= @skill_assessment.empathy_score %>',
+			'<%= @skill_assessment.employee_development_score %>',
+			'<%= @skill_assessment.flexibility_score %>',
+			'<%= @skill_assessment.futuristic_thinking_score %>',
+			'<%= @skill_assessment.goal_orientation_score %>',
+			'<%= @skill_assessment.interpersonal_skills_score %>',
+			'<%= @skill_assessment.leadership_score %>',
+			'<%= @skill_assessment.management_score %>',
+			'<%= @skill_assessment.negotiation_score %>',
+			'<%= @skill_assessment.personal_effectiveness_score %>',
+			'<%= @skill_assessment.persuasion_score %>',
+			'<%= @skill_assessment.planning_score %>',
+			'<%= @skill_assessment.presenting_score %>',
+			'<%= @skill_assessment.self_management_score %>',
+			'<%= @skill_assessment.teamwork_score %>',
+			'<%= @skill_assessment.written_communication_score %>'
+	]
+});
+
+
+//redraw chart
+//Chart.defaults.global.responsive = true;
+$('#otherUserName').html('<span class="glyphicon glyphicon-user" style="color:rgba(151,187,205,1);" aria-hidden="true"></span> ' + '<%= @added_user.first_name %>').removeClass('hidden');
+myRadarChart.destroy();
+mySkillBarChart.destroy();
+myValueBarChart.destroy();
+var myRadarChart = new Chart(discCtx).Radar(discData);
+$('#discLegend').html(myRadarChart.generateLegend());
+var mySkillBarChart = new Chart(skillCtx).Bar(skillData);
+var myValueBarChart = new Chart(valueCtx).Bar(valueData);
+
+//document.getElementById("discChart").width = 800;
+//document.getElementById("discChart").height = 500;
+//document.getElementById("skillChart").width = 800;
+//document.getElementById("skillChart").height = 500;
+//document.getElementById("valueChart").width = 800;
+//document.getElementById("valueChart").height = 500;
+
+//generate labels

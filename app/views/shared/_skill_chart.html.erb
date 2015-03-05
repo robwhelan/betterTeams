@@ -80,11 +80,11 @@
 </div>
 <p>Source: http://www.ttisuccessinsights.com/how/five-sciences/competencies</p>
 <script type="text/javascript">
-	var ctx = document.getElementById("skillChart").getContext("2d");
+	var skillCtx = document.getElementById("skillChart").getContext("2d");
 	document.getElementById("skillChart").width = 1200;
 	document.getElementById("skillChart").height = 500;
 
-	var data = {
+	var skillData = {
 	    labels: ['Analytical Problem Solving',
 					'Conflict Management',
 					'Continuous Learning',
@@ -110,7 +110,7 @@
 					'Written Communication'],
 	    datasets: [
 	        {
-	            label: "My Values",
+	            label: "My Skills",
 	            fillColor: "rgba(220,220,220,0.5)",
 	            strokeColor: "rgba(220,220,220,0.8)",
 	            highlightFill: "rgba(220,220,220,0.75)",
@@ -143,5 +143,5 @@
 	    ]
 	};
 
-	var myBarChart = new Chart(ctx).Bar(data);
+	var mySkillBarChart = new Chart(skillCtx).Bar(skillData);
 </script>

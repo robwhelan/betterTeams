@@ -1,0 +1,38 @@
+$( document ).ready(function() {
+	
+	function addUserToDashboard(user){
+		$.get("/pages/add_user_to_dashboard?user=" + user);
+	}
+	
+	var users = gon.users;
+
+	var users = new Bloodhound({
+		local: $.map(users, function(user){ 
+			return { value: user['first_name'],
+			 		 user_id: user['id']
+			}; 
+		}),
+		datumTokenizer: function(datum){
+			return Bloodhound.tokenizers.whitespace(datum.value);
+		},
+		queryTokenizer: Bloodhound.tokenizers.whitespace
+	});
+ 
+	// kicks off the loading/processing of `local` and `prefetch`
+	users.initialize();
+ 
+	$('#addedUser .typeahead').typeahead({
+	  hint: true,
+	  highlight: true,
+	  minLength: 1
+	},
+	{
+	  name: 'users',
+	  displayKey: 'value',
+	  // `ttAdapter` wraps the suggestion engine in an adapter that
+	  // is compatible with the typeahead jQuery plugin
+	  source: users.ttAdapter()
+	}).on('typeahead:selected', function (obj, datum) {
+	    addUserToDashboard(datum.user_id);
+	});
+});

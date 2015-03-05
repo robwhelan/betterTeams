@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'pages/job_matches'
   get 'pages/user_dashboard'
   get 'pages/demo'
+  get 'pages/add_user_to_dashboard'
   
   resources :messages
 

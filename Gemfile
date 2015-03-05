@@ -16,6 +16,7 @@ gem 'devise'
 gem 'cancan'
 gem 'thin'
 gem 'faker', :git => 'git://github.com/stympy/faker.git'
+gem 'gon'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

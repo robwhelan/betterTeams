@@ -61,11 +61,11 @@ knowledge: knowledge for the sake of knowledge.</p>
 
 
 <script type="text/javascript">
-	var ctx = document.getElementById("valueChart").getContext("2d");
+	var valueCtx = document.getElementById("valueChart").getContext("2d");
 	document.getElementById("valueChart").width = 800;
 	document.getElementById("valueChart").height = 500;
 
-	var data = {
+	var valueData = {
 	    labels: ["Aesthetic", "Economic", "Political", "Social", "Theoretical", "Traditional"],
 	    datasets: [
 	        {
@@ -85,5 +85,5 @@ knowledge: knowledge for the sake of knowledge.</p>
 	    ]
 	};
 
-	var myBarChart = new Chart(ctx).Bar(data);
+	var myValueBarChart = new Chart(valueCtx).Bar(valueData);
 </script>
