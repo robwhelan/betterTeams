@@ -31,6 +31,27 @@ class SkillAssessmentsController < ApplicationController
 
     respond_to do |format|
       if @skill_assessment.save
+        if user_signed_in? #in case they have already signed in for some reason
+          if session[:assessment_sequence]
+            disc = DiscAssessment.find(session[:disc_assessment_id])
+            disc.update_attributes(:user_id => current_user.id)
+            current_user.assign_discs_to_user
+      
+            value = ValueAssessment.find(session[:value_assessment_id])
+            value.update_attributes(:user_id => current_user.id)
+            current_user.assign_values_to_user      
+      
+            skill = SkillAssessment.find(session[:skill_assessment_id])
+            skill.update_attributes(:user_id => current_user.id)
+            current_user.assign_skills_to_user
+
+          end
+          session[:assessment_sequence] = "finished"
+          session[:disc_assessment_id] = nil
+          session[:skill_assessment_id] = nil
+          session[:value_assessment_id] = nil
+        end
+        
         #probably need to send them over to some dashboard instead of the skill view.
         format.html { redirect_to pages_user_dashboard_path, notice: 'Skill assessment was successfully created.' }
         format.json { render :show, status: :created, location: @skill_assessment }
