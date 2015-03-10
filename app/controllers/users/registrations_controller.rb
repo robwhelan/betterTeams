@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       current_user.assign_skills_to_user
 
     end
-    session[:assessment_sequence] = "finished"
+    session[:assessment_sequence] = "false"
     session[:disc_assessment_id] = nil
     session[:skill_assessment_id] = nil
     session[:value_assessment_id] = nil
