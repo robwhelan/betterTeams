@@ -22,6 +22,9 @@
 			<div class="col-md-1">
 				<%= user.assessment_skills[0].name %>
 			</div>
+			<div class="col-md-1">
+				<%= link_to 'Gap Analysis', pages_gap_analysis_path(:user => user.id, :job => @job_posting.id) %>
+			</div>
 		</div>
 	<% end %>
 </div>

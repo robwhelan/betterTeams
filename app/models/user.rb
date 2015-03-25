@@ -73,6 +73,8 @@ def self.matches_with_job_posting(job_posting_id)
 
 end #self.matches_with_job_posting
 
+
+#maybe refactor this to just be a function that sorts discs, then pass that array to a function that assigns the discs to the user.
 def assign_discs_to_user
   
   d = DiscAssessment.find(self.disc_assessments.last.id)
