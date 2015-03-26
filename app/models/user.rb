@@ -37,7 +37,6 @@ def self.matches_with_job_posting(job_posting_id)
   
   y.each do |user|
     #score based on disc
-    unless user.assessment_discs.empty? or user.assessment_values.empty? or user.assessment_skills.empty?
       r = 0
       assessment_disc_weights = [22, 11]
       job_posting.assessment_discs.each_with_index do |disc, i|
@@ -68,7 +67,6 @@ def self.matches_with_job_posting(job_posting_id)
       user.assessment_skill_rank = r
     
       user.job_fit_score = user.assessment_disc_rank + user.assessment_skill_rank + user.assessment_value_rank
-    end #end check for empty things
   end
 
   return y.sort_by(&:job_fit_score).reverse
