@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   #CHANGE WHEN DEPLOYING
-  config.action_mailer.default_url_options = { host: 'betterteams.co' }
+  config.action_mailer.default_url_options = { host: 'http://warm-sierra-5887.herokuapp.com/' }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
