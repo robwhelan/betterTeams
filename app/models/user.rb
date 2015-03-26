@@ -41,7 +41,6 @@ def self.matches_with_job_posting(job_posting_id)
     assessment_disc_weights = [22, 11]
     job_posting.assessment_discs.each_with_index do |disc, i|
       disc_weight = assessment_disc_weights[i]
-      puts i
       disc_value = user.assessment_discs[0,2].include?(disc) ? 1 : 0      
       r += disc_weight * disc_value
     end
