@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220010043) do
+ActiveRecord::Schema.define(version: 20150325175541) do
 
   create_table "assessment_discs", force: true do |t|
     t.string   "name"
@@ -210,12 +210,12 @@ ActiveRecord::Schema.define(version: 20150220010043) do
   add_index "user_values", ["user_id"], name: "index_user_values_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -227,6 +227,7 @@ ActiveRecord::Schema.define(version: 20150220010043) do
     t.string   "last_name"
     t.integer  "company_id"
     t.string   "job_title"
+    t.boolean  "is_a_manager",           default: false
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id"

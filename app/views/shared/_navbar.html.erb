@@ -8,7 +8,12 @@
         <li><a href="/">Take the Assessment</a></li>
         <li><a href="/pages/user_dashboard">My Dashboard</a></li>
 		<% if user_signed_in? %>
+			<% if current_user.is_a_manager %>
+				<li><a href="/job_postings">Gap Analysis</a></li>
+				<li><a href="/job_postings/new">Post a Job</a></li>
+			<% end %>
 			<li><a href="/users/sign_out">Sign Out</a></li>
+			<li><a href="#"><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></a></li>
 		<% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

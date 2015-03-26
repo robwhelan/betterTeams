@@ -28,11 +28,12 @@ def self.matches_with_job_posting(job_posting_id)
   job_posting = JobPosting.find(job_posting_id)
 
   #the first part just filters out users who don't pass based matching needs
-  y = User.all.find_all do |user|
-    job_posting.assessment_discs[0,2] == user.assessment_discs[0,2] and
-    (job_posting.assessment_values[0,3] & user.assessment_values).length >= 1 and
-    (job_posting.assessment_skills[0,5] & user.assessment_skills).length >= 2
-  end
+  y = User.all
+  #.find_all do |user|
+  #  job_posting.assessment_discs[0,2] == user.assessment_discs[0,2] and
+  #  (job_posting.assessment_values[0,3] & user.assessment_values).length >= 1 and
+  #  (job_posting.assessment_skills[0,5] & user.assessment_skills).length >= 2
+  #end
   
   y.each do |user|
     #score based on disc
@@ -40,7 +41,7 @@ def self.matches_with_job_posting(job_posting_id)
     assessment_disc_weights = [22, 11]
     job_posting.assessment_discs.each_with_index do |disc, i|
       disc_weight = assessment_disc_weights[i]
-      disc_value = user.assessment_discs.include?(disc) ? 1 : 0      
+      disc_value = user.assessment_discs[0,2].include?(disc) ? 1 : 0      
       r += disc_weight * disc_value
     end
     user.assessment_disc_rank = r
@@ -50,7 +51,7 @@ def self.matches_with_job_posting(job_posting_id)
     assessment_value_weights = [13, 11, 9]
     job_posting.assessment_values.each_with_index do |value, i|
       value_weight = assessment_value_weights[i]
-      value_value = user.assessment_values.include?(value) ? 1 : 0
+      value_value = user.assessment_values[0,3].include?(value) ? 1 : 0
       r += value_weight * value_value
     end
     user.assessment_value_rank = r
@@ -60,7 +61,7 @@ def self.matches_with_job_posting(job_posting_id)
     assessment_skill_weights = [9, 8, 6, 5, 5]
     job_posting.assessment_skills.each_with_index do |skill, i|
       skill_weight = assessment_skill_weights[i]
-      skill_value = user.assessment_skills.include?(skill) ? 1 : 0
+      skill_value = user.assessment_skills[0,5].include?(skill) ? 1 : 0
       r += skill_weight * skill_value
     end
     user.assessment_skill_rank = r
