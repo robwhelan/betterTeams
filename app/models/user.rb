@@ -51,7 +51,7 @@ def self.matches_with_job_posting(job_posting_id)
     assessment_value_weights = [13, 11, 9]
     job_posting.assessment_values.each_with_index do |value, i|
       value_weight = assessment_value_weights[i]
-      value_value = user.assessment_values[3,3].include?(value) ? 1 : 0
+      value_value = user.assessment_values[0,3].include?(value) ? 1 : 0 #3
       r += value_weight * value_value
     end
     user.assessment_value_rank = r
@@ -61,7 +61,7 @@ def self.matches_with_job_posting(job_posting_id)
     assessment_skill_weights = [9, 8, 6, 5, 5]
     job_posting.assessment_skills.each_with_index do |skill, i|
       skill_weight = assessment_skill_weights[i]
-      skill_value = user.assessment_skills[18,5].include?(skill) ? 1 : 0
+      skill_value = user.assessment_skills[0,5].include?(skill) ? 1 : 0 #18
       r += skill_weight * skill_value
     end
     user.assessment_skill_rank = r
