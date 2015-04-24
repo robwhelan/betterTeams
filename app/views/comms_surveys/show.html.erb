@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Improvement plan:</strong>
+  <%= @comms_survey.improvement_plan %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @comms_survey.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @comms_survey.email %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @comms_survey.user %>
+</p>
+
+<%= link_to 'Edit', edit_comms_survey_path(@comms_survey) %> |
+<%= link_to 'Back', comms_surveys_path %>

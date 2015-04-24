@@ -5,4 +5,6 @@ class AssessmentDisc < ActiveRecord::Base
 
   has_many :user_discs
   has_many :users, through: :user_discs
+
+  has_many :comms_questions
 end

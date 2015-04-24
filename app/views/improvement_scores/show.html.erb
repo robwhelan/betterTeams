@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comms question:</strong>
+  <%= @improvement_score.comms_question %>
+</p>
+
+<p>
+  <strong>Improvement plan:</strong>
+  <%= @improvement_score.improvement_plan %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @improvement_score.score %>
+</p>
+
+<%= link_to 'Edit', edit_improvement_score_path(@improvement_score) %> |
+<%= link_to 'Back', improvement_scores_path %>

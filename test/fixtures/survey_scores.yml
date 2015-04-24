@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comms_question_id: 
+  comms_suvey_id: 
+  score: 1
+
+two:
+  comms_question_id: 
+  comms_suvey_id: 
+  score: 1

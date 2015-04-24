@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
 
   has_many :user_values
   has_many :assessment_values, through: :user_values
+  
+  has_many :initiated_improvement_plans, class_name: 'ImprovementPlan', foreign_key: 'initiator_id'
+  has_many :followed_improvement_plans, class_name: 'ImprovementPlan', foreign_key: 'follower_id'
 
 
 def self.matches_with_job_posting(job_posting_id)

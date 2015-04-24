@@ -1,0 +1,29 @@
+<%= form_for(@improvement_score) do |f| %>
+  <% if @improvement_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@improvement_score.errors.count, "error") %> prohibited this improvement_score from being saved:</h2>
+
+      <ul>
+      <% @improvement_score.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :comms_question_id %><br>
+    <%= f.text_field :comms_question_id %>
+  </div>
+  <div class="field">
+    <%= f.label :improvement_plan_id %><br>
+    <%= f.text_field :improvement_plan_id %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br>
+    <%= f.number_field :score %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

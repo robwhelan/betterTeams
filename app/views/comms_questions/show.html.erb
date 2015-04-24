@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @comms_question.body %>
+</p>
+
+<p>
+  <strong>Assessment disc:</strong>
+  <%= @comms_question.assessment_disc %>
+</p>
+
+<%= link_to 'Edit', edit_comms_question_path(@comms_question) %> |
+<%= link_to 'Back', comms_questions_path %>

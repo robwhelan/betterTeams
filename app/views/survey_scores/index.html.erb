@@ -1,0 +1,29 @@
+<h1>Listing survey_scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comms question</th>
+      <th>Comms suvey</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @survey_scores.each do |survey_score| %>
+      <tr>
+        <td><%= survey_score.comms_question %></td>
+        <td><%= survey_score.comms_suvey %></td>
+        <td><%= survey_score.score %></td>
+        <td><%= link_to 'Show', survey_score %></td>
+        <td><%= link_to 'Edit', edit_survey_score_path(survey_score) %></td>
+        <td><%= link_to 'Destroy', survey_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Survey score', new_survey_score_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325175541) do
+ActiveRecord::Schema.define(version: 20150424210342) do
 
   create_table "assessment_discs", force: true do |t|
     t.string   "name"
@@ -31,6 +31,27 @@ ActiveRecord::Schema.define(version: 20150325175541) do
     t.datetime "updated_at"
   end
 
+  create_table "comms_questions", force: true do |t|
+    t.string   "body"
+    t.integer  "assessment_disc_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comms_questions", ["assessment_disc_id"], name: "index_comms_questions_on_assessment_disc_id"
+
+  create_table "comms_surveys", force: true do |t|
+    t.integer  "improvement_plan_id"
+    t.string   "name"
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comms_surveys", ["improvement_plan_id"], name: "index_comms_surveys_on_improvement_plan_id"
+  add_index "comms_surveys", ["user_id"], name: "index_comms_surveys_on_user_id"
+
   create_table "companies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -49,6 +70,27 @@ ActiveRecord::Schema.define(version: 20150325175541) do
   end
 
   add_index "disc_assessments", ["user_id"], name: "index_disc_assessments_on_user_id"
+
+  create_table "improvement_plans", force: true do |t|
+    t.integer  "initiator_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "improvement_plans", ["follower_id"], name: "index_improvement_plans_on_follower_id"
+  add_index "improvement_plans", ["initiator_id"], name: "index_improvement_plans_on_initiator_id"
+
+  create_table "improvement_scores", force: true do |t|
+    t.integer  "comms_question_id"
+    t.integer  "improvement_plan_id"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "improvement_scores", ["comms_question_id"], name: "index_improvement_scores_on_comms_question_id"
+  add_index "improvement_scores", ["improvement_plan_id"], name: "index_improvement_scores_on_improvement_plan_id"
 
   create_table "job_benchmarks", force: true do |t|
     t.string   "title"
@@ -171,6 +213,17 @@ ActiveRecord::Schema.define(version: 20150325175541) do
   end
 
   add_index "skill_assessments", ["user_id"], name: "index_skill_assessments_on_user_id"
+
+  create_table "survey_scores", force: true do |t|
+    t.integer  "comms_question_id"
+    t.integer  "comms_survey_id"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "survey_scores", ["comms_question_id"], name: "index_survey_scores_on_comms_question_id"
+  add_index "survey_scores", ["comms_survey_id"], name: "index_survey_scores_on_comms_survey_id"
 
   create_table "task_statements", force: true do |t|
     t.string   "onet_id"

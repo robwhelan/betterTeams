@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  improvement_plan_id: 
+  name: MyString
+  email: MyString
+  user_id: 
+
+two:
+  improvement_plan_id: 
+  name: MyString
+  email: MyString
+  user_id: 

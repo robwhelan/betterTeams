@@ -1,0 +1,27 @@
+<h1>Listing comms_questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Assessment disc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comms_questions.each do |comms_question| %>
+      <tr>
+        <td><%= comms_question.body %></td>
+        <td><%= comms_question.assessment_disc %></td>
+        <td><%= link_to 'Show', comms_question %></td>
+        <td><%= link_to 'Edit', edit_comms_question_path(comms_question) %></td>
+        <td><%= link_to 'Destroy', comms_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comms question', new_comms_question_path %>

@@ -1,0 +1,22 @@
+<%= form_for(@improvement_plan) do |f| %>
+  <% if @improvement_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@improvement_plan.errors.count, "error") %> prohibited this improvement_plan from being saved:</h2>
+
+      <ul>
+      <% @improvement_plan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.text_field :initiator_id, class: 'hidden' %>
+  <div class="field">
+    <%= f.label :follower_id %><br>
+    <%= f.text_field :follower_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

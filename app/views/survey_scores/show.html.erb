@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comms question:</strong>
+  <%= @survey_score.comms_question %>
+</p>
+
+<p>
+  <strong>Comms suvey:</strong>
+  <%= @survey_score.comms_suvey %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @survey_score.score %>
+</p>
+
+<%= link_to 'Edit', edit_survey_score_path(@survey_score) %> |
+<%= link_to 'Back', survey_scores_path %>

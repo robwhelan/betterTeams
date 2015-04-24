@@ -1,0 +1,27 @@
+<h1>Listing improvement_plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Initiator</th>
+      <th>Follower</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @improvement_plans.each do |improvement_plan| %>
+      <tr>
+        <td><%= improvement_plan.initiator %></td>
+        <td><%= improvement_plan.follower %></td>
+        <td><%= link_to 'Show', improvement_plan %></td>
+        <td><%= link_to 'Edit', edit_improvement_plan_path(improvement_plan) %></td>
+        <td><%= link_to 'Destroy', improvement_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Improvement plan', new_improvement_plan_path %>

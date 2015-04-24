@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Initiator:</strong>
+  <%= @improvement_plan.initiator %>
+</p>
+
+<p>
+  <strong>Follower:</strong>
+  <%= @improvement_plan.follower %>
+</p>
+
+<%= link_to 'Edit', edit_improvement_plan_path(@improvement_plan) %> |
+<%= link_to 'Back', improvement_plans_path %>

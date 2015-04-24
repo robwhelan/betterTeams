@@ -1,0 +1,2 @@
+module CommsQuestionsHelper
+end

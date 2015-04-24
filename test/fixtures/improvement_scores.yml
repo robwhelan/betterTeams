@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comms_question_id: 
+  improvement_plan_id: 
+  score: 1
+
+two:
+  comms_question_id: 
+  improvement_plan_id: 
+  score: 1

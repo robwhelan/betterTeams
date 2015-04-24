@@ -1,5 +1,15 @@
 Rails.application.routes.draw do  
   
+  resources :improvement_scores
+
+  resources :survey_scores
+
+  resources :comms_questions
+
+  resources :comms_surveys
+
+  resources :improvement_plans
+
   resources :skill_assessments
 
   resources :value_assessments
