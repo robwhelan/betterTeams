@@ -5,6 +5,7 @@ class UserNotifier < ActionMailer::Base
       @follower = follower
       mail( :to => @follower.email,
       :subject => "You've been invited to participate in an improvement plan!" )
+      @params = '?user=' + @follower.id.to_s + '&improvement_plan=' + improvement_plan.id.to_s
   end
     
 end
