@@ -1,22 +1,65 @@
-<%= form_for(@improvement_plan) do |f| %>
-  <% if @improvement_plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@improvement_plan.errors.count, "error") %> prohibited this improvement_plan from being saved:</h2>
+<div class="row">
+	<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<%= form_for(@improvement_plan) do |f| %>
+			  <% if @improvement_plan.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@improvement_plan.errors.count, "error") %> prohibited this improvement_plan from being saved:</h2>
 
-      <ul>
-      <% @improvement_plan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			      <ul>
+			      <% @improvement_plan.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
 
-    <%= f.text_field :initiator_id, class: 'hidden' %>
-  <div class="field">
-    <%= f.label :follower_id %><br>
-    <%= f.text_field :follower_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+				<p>Who do you want to improve communication with?</p>
+			    <%= f.text_field :initiator_id, class: 'hidden' %>
+			    <%= f.text_field :follower_id, class: 'hidden' %>
+				<div id="addedUser" class="typeaheadInput"><input class="form-control typeahead" placeholder="Pick Somebody"></div>
+			    <%= f.submit class: 'form-control' %>
+			<% end %>
+		</div>
+	<div class="col-md-3"></div>
+</div>
+
+
+<%= content_for :javascript do %>
+<script>
+$( document ).ready(function() {
+
+	var users = gon.users;
+
+	var users = new Bloodhound({
+		local: $.map(users, function(user){ 
+			return { value: user['user_first_name'] + " " + user['user_last_name'],
+			 		 user_id: user['id']
+			}; 
+		}),
+		datumTokenizer: function(datum){
+			return Bloodhound.tokenizers.whitespace(datum.value);
+		},
+		queryTokenizer: Bloodhound.tokenizers.whitespace
+	});
+	
+	users.initialize();
+
+	$('#addedUser .typeahead').typeahead({
+	  hint: true,
+	  highlight: true,
+	  minLength: 1
+	},
+	{
+	  name: 'users',
+	  displayKey: 'value',
+	  // `ttAdapter` wraps the suggestion engine in an adapter that
+	  // is compatible with the typeahead jQuery plugin
+	  source: users.ttAdapter()
+	}).on('typeahead:selected', function (obj, datum) {
+	    $('#improvement_plan_follower_id').val(datum.user_id);
+	});//add the id of the item to campaign_id field
+
+});
+</script>
 <% end %>

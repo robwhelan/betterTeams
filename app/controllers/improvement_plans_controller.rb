@@ -16,6 +16,7 @@ class ImprovementPlansController < ApplicationController
   # GET /improvement_plans/new
   def new
     @improvement_plan = current_user.initiated_improvement_plans.new
+    gon.users = User.with_names
   end
 
   # GET /improvement_plans/1/edit
@@ -29,6 +30,7 @@ class ImprovementPlansController < ApplicationController
 
     respond_to do |format|
       if @improvement_plan.save
+        #initiate improvement plan sequence.
         format.html { redirect_to @improvement_plan, notice: 'Improvement plan was successfully created.' }
         format.json { render :show, status: :created, location: @improvement_plan }
       else

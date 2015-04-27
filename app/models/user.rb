@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :initiated_improvement_plans, class_name: 'ImprovementPlan', foreign_key: 'initiator_id'
   has_many :followed_improvement_plans, class_name: 'ImprovementPlan', foreign_key: 'follower_id'
 
+  UserDetails = Struct.new(:id, :user_first_name, :user_last_name)
 
 def self.matches_with_job_posting(job_posting_id)
   #job_posting_id = 4
@@ -138,6 +139,18 @@ def assign_skills_to_user
     self.assessment_skills << AssessmentSkill.find_by_name(skill[0])
   end
 end #assign_skills_to_user
+
+
+def self.with_names
+  ary = []
+  y = User.all
+
+  y.each do |u|
+    x = UserDetails.new(u.id, u.first_name, u.last_name)
+    ary << x
+  end
+  return ary
+end #self.with_names
 
 
 end
