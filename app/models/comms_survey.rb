@@ -7,8 +7,13 @@ class CommsSurvey < ActiveRecord::Base
   accepts_nested_attributes_for :survey_scores
 
   def load_survey_questions
-    first_disc = self.user.assessment_discs[0]
-    second_disc = self.user.assessment_discs[1]
+    # refactor this as a general way to rank disc assessments
+    d = DiscAssessment.find(self.user.disc_assessments.last)
+    hash = {"Driver" => d.driver_score, "Influencer" => d.influencer_score, "Sociable" => d.sociable_score, "Conscientious" => d.conscientious_score}
+    array = hash.sort_by{|k,v| v}.reverse
+    
+    first_disc = AssessmentDisc.find_by_name(array[0][0])
+    second_disc = AssessmentDisc.find_by_name(array[1][0])
     #assign the first 10 of the primary attribute questions
     survey_scores = []
     for i in 0..9 do  
