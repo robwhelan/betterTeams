@@ -30,7 +30,7 @@ class ImprovementPlansController < ApplicationController
 
     respond_to do |format|
       if @improvement_plan.save
-        #initiate improvement plan sequence.
+        #initiate improvement plan sequence. @improvement_plan.initiate_emails()
         format.html { redirect_to @improvement_plan, notice: 'Improvement plan was successfully created.' }
         format.json { render :show, status: :created, location: @improvement_plan }
       else

@@ -4,6 +4,24 @@ class PagesController < ApplicationController
   def home
   end
   
+  def increment_survey
+    @survey_score = SurveyScore.find(params[:s])
+    @survey_score.score = 1
+    @survey_score.save
+    respond_to do |format|
+      format.js
+    end    
+  end
+  
+  def decrement_survey
+    @survey_score = SurveyScore.find(params[:s])
+    @survey_score.score = 0
+    @survey_score.save
+    respond_to do |format|
+      format.js
+    end    
+  end
+
   def demo
   end
 

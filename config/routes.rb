@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get 'pages/demo'
   get 'pages/add_user_to_dashboard'
   get 'pages/gap_analysis'
+  get 'pages/increment_survey'
+  get 'pages/decrement_survey'
   
   resources :messages
 

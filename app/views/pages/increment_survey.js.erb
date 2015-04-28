@@ -1,0 +1,4 @@
+$("[data-survey-score-id='<%= @survey_score.id %>']").removeClass('glyphicon-unchecked').addClass('glyphicon-check').attr('data-checked', 'true');
+if($("[data-checked='true']").length > 4){
+	$('#submitButton').removeClass('disabled');
+}

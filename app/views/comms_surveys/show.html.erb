@@ -1,24 +1,39 @@
 <p id="notice"><%= notice %></p>
+<!-- put all 15 questions with ajax updates -->
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 content">
+			<h3>Pick at least five things that are really important to know when communicating with <%= @comms_survey.user.first_name %>.</h3>
+			<% @survey_scores.each do |s| %>
+				<h3><span class="survey-check glyphicon glyphicon-unchecked" data-checked="false" data-survey-score-id='<%= s.id %>'></span> <%= s.comms_question.body %></h3>
+			<% end %>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<button id="submitButton" class="btn btn-lg btn-block btn-success disabled">Save</button>
+		</div>
+		<div class="col-md-2"></div>
+	</div>		
 
-<p>
-  <strong>Improvement plan:</strong>
-  <%= @comms_survey.improvement_plan %>
-</p>
+<input type="number" id="answerCount">
 
-<p>
-  <strong>Name:</strong>
-  <%= @comms_survey.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @comms_survey.email %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @comms_survey.user %>
-</p>
-
-<%= link_to 'Edit', edit_comms_survey_path(@comms_survey) %> |
-<%= link_to 'Back', comms_surveys_path %>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$('.survey-check').click(function(){
+		var params = "?s=" + $(this).attr('data-survey-score-id');
+		if( $(this).attr('data-checked') == "false" ){
+			$.get('/pages/increment_survey' + params);
+		} else {
+			$.get('/pages/decrement_survey' + params);						
+		}//ajax to create survey score
+	});
+	
+	$('#submitButton').click(function(){
+		$('.col-md-8').html("");
+		$('.content').html("<h1>All done!</h1><h3><a href='/'>Click here</a> to take a professional assessment of your own.</h3>");
+	})
+});
+</script>
