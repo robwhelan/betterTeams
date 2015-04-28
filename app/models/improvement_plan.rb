@@ -83,7 +83,7 @@ class ImprovementPlan < ActiveRecord::Base
 	                   "<p>You've invited " + follower.first_name + " " + follower.last_name + " to work through a fun project to improve your team communications.</p>" +
 	                   "<p>It starts with you having five people, who know you well, to take a super short survey about you. It takes less than three minutes.</p>" + 
 	                   "<p>All they have to do is pick five things people need to know when communicating with you!</p>" +
-	                   "<p><strong>Important:</strong> share <a href='http://www.betterteams.co/comms_surveys/new#{initiator_params}'>this link</a> to take the survey. It's your personal survey link.</p>" +
+	                   "<p><strong>Important:</strong> share <a href='http://www.betterteams.co/comms_surveys/new#{initiator_params}'>this link with five people</a> to have them take the survey.</p>" +
                      "<p>Then <a href='http://www.betterteams.co/improvement_plans'>check here</a> for the status.</p>"
                    }	 
     
@@ -105,7 +105,7 @@ class ImprovementPlan < ActiveRecord::Base
 	                   "<p>You've been invited by " + initiator.first_name + " " + initiator.last_name + " to work through a fun project to improve your team communications.</p>" +
 	                   "<p>It starts with you having five people, who know you well, to take a super short survey about you. It takes less than three minutes.</p>" + 
 	                   "<p>All they have to do is pick five things people need to know when communicating with you!</p>" +
-	                   "<p><strong>Important:</strong> share <a href='http://www.betterteams.co/comms_surveys/new#{follower_params}'>this link</a> to take the survey. It's your personal survey link.</p>" +
+	                   "<p><strong>Important:</strong> share <a href='http://www.betterteams.co/comms_surveys/new#{follower_params}'>this link with five people</a> to have them take the survey.</p>" +
                      "<p>Then <a href='http://www.betterteams.co/improvement_plans'>check here</a> for the status.</p>"
                    }	 
       async = false
