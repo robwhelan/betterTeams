@@ -57,13 +57,36 @@ class ImprovementPlan < ActiveRecord::Base
   def initiate_improvement_plan_emails
     follower = self.follower
     initiator = self.initiator
-    params = '?user=' + follower.id.to_s + '&improvement_plan=' + self.id.to_s
+    follower_params = '?user=' + follower.id.to_s + '&improvement_plan=' + self.id.to_s
+    initiator_params = '?user=' + initiator.id.to_s + '&improvement_plan=' + self.id.to_s
 
     if Rails.env == "development"
       mandrill = Mandrill::API.new 'PVZ2WOxJtKZam_15Sfzt9Q'
     else
       mandrill = Mandrill::API.new ENV['MANDRILL_APIKEY'] #'PVZ2WOxJtKZam_15Sfzt9Q'
     end
+    
+    initiator_message = {
+         "subject"=>"You have started an improvement plan!",
+         "text"=>"You have started an improvement plan.",
+         "from_email"=>"whelan@gmail.com",
+        "from_name"=>"BetterTeams",
+         "merge_language"=>"mailchimp",
+         "inline_css"=>nil,
+         "recipient_metadata"=>
+            [{"values"=>{"user_id"=> initiator.id }, "rcpt"=> initiator.email}],
+         "to"=>
+            [{"name"=> initiator.first_name + " " + initiator.last_name,
+                "type"=>"to",
+                "email"=> initiator.email }],
+         "html"=> 	 "<p>Dear " + initiator.first_name + ",</p>" +
+	                   "<p>You've invited " + follower.first_name + " " + follower.last_name + " to work through a fun project to improve your team communications.</p>" +
+	                   "<p>It starts with you having five people, who know you well, to take a super short survey about you. It takes less than three minutes.</p>" + 
+	                   "<p>All they have to do is pick five things people need to know when communicating with you!</p>" +
+	                   "<p><strong>Important:</strong> share <a href='http://www.betterteams.co/comms_surveys/new#{initiator_params}'>this link</a> to take the survey. It's your personal survey link.</p>" +
+                     "<p>Then <a href='http://www.betterteams.co/improvement_plans'>check here</a> for the status.</p>"
+                   }	 
+    
     
     follower_message = {
          "subject"=>"You have been invited to participate in an improvement plan!",
@@ -82,11 +105,13 @@ class ImprovementPlan < ActiveRecord::Base
 	                   "<p>You've been invited by " + initiator.first_name + " " + initiator.last_name + " to work through a fun project to improve your team communications.</p>" +
 	                   "<p>It starts with you having five people, who know you well, to take a super short survey about you. It takes less than three minutes.</p>" + 
 	                   "<p>All they have to do is pick five things people need to know when communicating with you!</p>" +
-	                   "<p><strong>Important:</strong> share <a href='http://www.betterteams.co/comms_surveys/new#{params}'>this link</a> to take the survey. It's your personal survey link.</p>"
+	                   "<p><strong>Important:</strong> share <a href='http://www.betterteams.co/comms_surveys/new#{follower_params}'>this link</a> to take the survey. It's your personal survey link.</p>" +
+                     "<p>Then <a href='http://www.betterteams.co/improvement_plans'>check here</a> for the status.</p>"
                    }	 
       async = false
       ip_pool = "Main Pool"
-      result = mandrill.messages.send follower_message, async, ip_pool
+      follower_result = mandrill.messages.send follower_message, async, ip_pool
+      initiator_result = mandrill.messages.send initiator_message, async, ip_pool
   end
     
 end
