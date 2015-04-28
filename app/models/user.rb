@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
 
   UserDetails = Struct.new(:id, :user_first_name, :user_last_name)
 
+  def my_improvement_plans
+    self.initiated_improvement_plans + self.followed_improvement_plans
+  end
+
 def self.matches_with_job_posting(job_posting_id)
   #job_posting_id = 4
   job_posting = JobPosting.find(job_posting_id)

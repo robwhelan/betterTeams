@@ -1,0 +1,9 @@
+<h1><%= user.first_name %> <%= user.last_name %></h1>
+<hr/>
+<h1><%= completed_surveys %> / 5</h1>
+<p>Surveys completed</p>
+<hr/>
+<h3>Things to know about <%= user.first_name %></h3>
+<% ranked_questions.each do |q| %>
+	<p><span><strong><%= q.score %></strong> <%= q.body %></span></p>
+	<% end %>

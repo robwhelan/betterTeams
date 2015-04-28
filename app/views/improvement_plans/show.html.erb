@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Initiator:</strong>
-  <%= @improvement_plan.initiator %>
-</p>
-
-<p>
-  <strong>Follower:</strong>
-  <%= @improvement_plan.follower %>
-</p>
+<div class="row">
+	<div class="col-md-6">
+		<%= render 'improvement_plans/shared/status', user: @improvement_plan.initiator, completed_surveys: @completed_surveys_initiator, ranked_questions: @ranked_comms_questions_initiator %>
+	</div>
+	<div class="col-md-6">
+		<%= render 'improvement_plans/shared/status', user: @improvement_plan.follower, completed_surveys: @completed_surveys_follower, ranked_questions: @ranked_comms_questions_follower %>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_improvement_plan_path(@improvement_plan) %> |
 <%= link_to 'Back', improvement_plans_path %>

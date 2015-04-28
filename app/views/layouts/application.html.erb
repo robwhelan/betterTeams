@@ -37,7 +37,9 @@
 <body>
 
 	<%= render 'shared/navbar' %>
-	<%= yield %>
+	<div class="container">
+		<%= yield %>
+	</div>
 	<ul class="hidden">
 		<%= render 'devise/menu/login_items' %>
 	</ul>

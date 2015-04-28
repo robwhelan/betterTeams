@@ -5,12 +5,16 @@ class ImprovementPlansController < ApplicationController
   # GET /improvement_plans
   # GET /improvement_plans.json
   def index
-    @improvement_plans = ImprovementPlan.all
+    @improvement_plans = current_user.my_improvement_plans
   end
 
   # GET /improvement_plans/1
   # GET /improvement_plans/1.json
   def show
+    @completed_surveys_initiator = @improvement_plan.count_comms_surveys_completed_for(@improvement_plan.initiator)
+    @completed_surveys_follower = @improvement_plan.count_comms_surveys_completed_for(@improvement_plan.follower)
+    @ranked_comms_questions_initiator = @improvement_plan.ranked_survey_responses(@improvement_plan.initiator)
+    @ranked_comms_questions_follower = @improvement_plan.ranked_survey_responses(@improvement_plan.follower)
   end
 
   # GET /improvement_plans/new

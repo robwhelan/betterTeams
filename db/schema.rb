@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427205824) do
+ActiveRecord::Schema.define(version: 20150428183148) do
 
   create_table "assessment_discs", force: true do |t|
     t.string   "name"
@@ -219,7 +219,7 @@ ActiveRecord::Schema.define(version: 20150427205824) do
   create_table "survey_scores", force: true do |t|
     t.integer  "comms_question_id"
     t.integer  "comms_survey_id"
-    t.integer  "score"
+    t.integer  "score",             default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

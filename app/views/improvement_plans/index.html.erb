@@ -1,6 +1,6 @@
-<h1>Listing improvement_plans</h1>
+<h1>My Improvement Plans</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Initiator</th>
@@ -12,11 +12,9 @@
   <tbody>
     <% @improvement_plans.each do |improvement_plan| %>
       <tr>
-        <td><%= improvement_plan.initiator %></td>
-        <td><%= improvement_plan.follower %></td>
-        <td><%= link_to 'Show', improvement_plan %></td>
-        <td><%= link_to 'Edit', edit_improvement_plan_path(improvement_plan) %></td>
-        <td><%= link_to 'Destroy', improvement_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= improvement_plan.initiator.first_name %> <%= improvement_plan.initiator.last_name %></td>
+        <td><%= improvement_plan.follower.first_name %> <%= improvement_plan.follower.last_name %></td>
+        <td><%= link_to 'Status', improvement_plan %></td>
       </tr>
     <% end %>
   </tbody>
