@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, :except => [:demo]
+  before_action :authenticate_user!, :except => [:demo, :increment_survey, :decrement_survey]
 
   def home
   end
