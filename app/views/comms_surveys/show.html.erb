@@ -5,7 +5,7 @@
 		<div class="col-md-8 content">
 			<h3>Pick at least five things that are really important to know when communicating with <%= @comms_survey.user.first_name %>.</h3>
 			<% @survey_scores.each do |s| %>
-				<h3><button class="btn btn-lg btn-default survey-check glyphicon glyphicon-unchecked" data-checked="false" data-survey-score-id='<%= s.id %>'>&nbsp;</button><%= s.comms_question.body %></h3>
+				<h3><button class="btn btn-lg btn-default survey-check" data-checked="false" data-survey-score-id='<%= s.id %>'>&nbsp;</button><%= s.comms_question.body %></h3>
 			<% end %>
 		</div>
 		<div class="col-md-2"></div>
